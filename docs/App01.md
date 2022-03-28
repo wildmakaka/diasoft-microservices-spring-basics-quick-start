@@ -1,5 +1,8 @@
-# Создать простейший микросервис используя Spring Boot c REST API GET /greetings по иструкции https://spring.io/guides/gs/rest-service/
+# 01. Введение в микросервисную архитектуру и Spring Framework
 
+<br/>
+
+Создать простейший микросервис используя Spring Boot c REST API GET /greetings по иструкции https://spring.io/guides/gs/rest-service/)
 
 <br/>
 

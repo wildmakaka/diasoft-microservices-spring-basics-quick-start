@@ -1,5 +1,8 @@
-# diasoft spring basics
+# diasoft microservices spring basics
 
 
-## [[App01] Создать простейший микросервис используя Spring Boot c REST API GET /greetings по иструкции](/docs/App01.md)
+<br/>
 
+### [01. Введение в микросервисную архитектуру и Spring Framework](/docs/App01.md)
+
+### [02. Аспектно-ориентированное программирование в Spring](/docs/App02.md)
