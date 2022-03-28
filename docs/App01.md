@@ -51,4 +51,4 @@ $ ./mvnw spring-boot:run
 
 <br/>
 
-![Application](/img/app02-pic01.png?raw=true)
+![Application](/img/app01-pic02.png?raw=true)
