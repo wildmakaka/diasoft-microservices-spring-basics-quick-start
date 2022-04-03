@@ -62,7 +62,6 @@ $ mvn liquibase:update
 // $ mvn liquibase:rollback -Dliquibase.rollbackCount=1
 ```
 
-
 <br/>
 
 ```
@@ -130,4 +129,6 @@ postgres-db=# select author, filename, exectype from databasechangelog;
 
 **Материалы:**
 
-https://www.youtube.com/watch?v=uegLZi7-sGc&list=LL
+https://www.youtube.com/watch?v=uegLZi7-sGc
+
+https://github.com/serlesen/backend-social-network
