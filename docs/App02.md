@@ -39,10 +39,6 @@ $ curl localhost:8080/greeting?name=WebMakaka
 }
 ```
 
-<br/>
-
-
-
 
 <br/>
 

@@ -15,6 +15,8 @@
 	<description>Spring Boot Quick Start</description>
 	<properties>
 		<java.version>11</java.version>
+		<!--<liquibase.propertyFile>${project.basedir}/src/main/resources/liquibase.properties</liquibase.propertyFile>-->
+		<!--<liquibase.propertyFile>src/main/resources/liquibase.properties</liquibase.propertyFile>-->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,16 +42,47 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+		<dependency>
+            <groupId>org.liquibase</groupId> 
+            <artifactId>liquibase-core</artifactId>
+       </dependency>
 	</dependencies>
-
+	
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
+     <plugins> 
+             <plugin>
+                  <groupId>org.springframework.boot</groupId>
+                  <artifactId>spring-boot-maven-plugin</artifactId>
+             </plugin>
+     </plugins>
 	</build>
-
+	
+	
+	<!--
+	
+	  <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-maven-plugin</artifactId>
+                    <version>4.2.0</version>
+                    <configuration>
+                        <propertyFile>${liquibase.propertyFile}</propertyFile>
+                    </configuration>
+                    
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.hibernate</groupId>
+                            <artifactId>hibernate-core</artifactId>
+                            <version>5.4.12.Final</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    
+    -->
+	
 </project>
