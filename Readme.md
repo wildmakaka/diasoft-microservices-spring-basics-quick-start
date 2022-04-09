@@ -1,5 +1,4 @@
-# diasoft microservices spring basics
-
+# Быстрый старт разработчика микросервисов (Spring)
 
 ### [01. Введение в микросервисную архитектуру и Spring Framework](/docs/App01.md)
 
