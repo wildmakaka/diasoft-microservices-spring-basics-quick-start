@@ -23,3 +23,18 @@ $ cd apps/app08
 $ ./mvnw spring-boot:run
 ```
 
+
+<br/>
+
+```
+// Create a Message
+$ kafka-console-producer.sh \
+    --broker-list localhost:9092 \
+    --topic demo
+```
+
+
+
+<br/>
+
+![Application](/img/app07-pic10.gif?raw=true)
