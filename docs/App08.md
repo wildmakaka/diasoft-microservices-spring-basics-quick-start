@@ -19,3 +19,20 @@ $ cd apps/app08
 $ ./mvnw spring-boot:run
 ```
 
+
+<br/>
+
+![Application](/img/app07-pic01.gif?raw=true)
+
+
+<br/>
+
+
+
+```
+Login/pass
+
+user1/user1
+user2/user2
+admin1/admin1
+```
