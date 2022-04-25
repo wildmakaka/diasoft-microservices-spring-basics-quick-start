@@ -23,6 +23,12 @@
 <br/>
 
 ```
+$ mvn -B archetype:generate -DarchetypeGroupId=ru.diasoft.micro -DarchetypeArtifactId=template-archetype -DarchetypeVersion=RELEASE -DgroupId=ru.diasoft.micro  -DartifactId=demo -Dversion=1.01.01-SNAPSHOT
+
+```
+
+
+```
 $ cd apps/app08
 ```
 

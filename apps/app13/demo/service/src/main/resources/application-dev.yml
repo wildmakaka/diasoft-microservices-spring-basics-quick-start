@@ -1,0 +1,93 @@
+server:
+  port: ${SERVICE_PORT:7081}
+
+mdp.discovery:
+  discoveryClientName: ${DISCOVERY_CLIENT_NAME:disable}
+
+security: 
+  enabled: ${SECURITY_ENABLED:false} 
+  oauth2: 
+    client: 
+      clientId:
+      clientSecret: 
+      scope:
+      accessTokenUri:
+      userAuthorizationUri:
+    resource: 
+      jwt: 
+        key-uri:
+        
+spring:
+# Postgres
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/template2
+    username: postgres
+    password: 123456
+    hikari:
+      connection-test-query:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      naming: 
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        globally_quoted_identifiers: false
+        jdbc:
+          time_zone: UTC
+          lob:
+            non_contextual_creation: true
+
+# Oracle
+#  datasource:
+#    driverClassName: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@aml2devops:1521:tstdf
+#    username: TEMPLATE
+#    password: TEMPLATE
+#    hikari:
+#      connection-test-query:
+#  jpa:
+#    database-platform: org.hibernate.dialect.Oracle10gDialect
+#    show-sql: true
+#    generate-ddl: false
+#    hibernate:
+#      ddl-auto: none
+#      naming: 
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    properties:
+#      hibernate:
+#        globally_quoted_identifiers: false # Для PostgreSQL установить в true, для MSSQL, Oracle в false
+#        jdbc:
+#          time_zone: UTC
+#          lob:
+#            non_contextual_creation: true
+
+# h2
+#  datasource:
+#    driverClassName: ${DB_DRIVER:org.h2.Driver}
+#    url: ${DB_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1}
+#    username: ${DB_LOGIN:sa}
+#    password: ${DB_PASSWORD:}
+#  jpa:
+#    database-platform: ${JPA_DIALECT:org.hibernate.dialect.H2Dialect}
+#    generate-ddl: ${GENERATE_DDL:true}
+#    hibernate:
+#      naming: 
+#        physical-strategy: ${JPA_STRATEGY:ru.diasoft.micro.lib.config.H2PhysicalNamingStrategy}
+# Generate Events Publisher or Subsriber
+  kafka:
+    bootstrap-servers: ${KAFKA_URL:localhost:9092}     
+    admin:
+      properties:
+        request.timeout.ms: ${KAFKA_REQUEST_TIMEOUT:5000}
+
+dstrace:
+  enabled: ${TRACER_ENABLE:false}
+
+logging:
+  level:
+    ru.diasoft: ${LOGGING_LEVEL:DEBUG}

@@ -22,7 +22,7 @@ $ ./mvnw spring-boot:run
 
 <br/>
 
-![Application](/img/app07-pic01.gif?raw=true)
+![Application](/img/app08-pic01.gif?raw=true)
 
 
 <br/>
