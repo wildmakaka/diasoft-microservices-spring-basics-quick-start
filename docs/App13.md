@@ -133,7 +133,7 @@ $ ./dm.sh -d -c -i --url=jdbc:postgresql://postgres:5432 --database=postgresdb -
 
 ```
 $ chmod +x ./dm.sh
-$ ./dm.sh -i --url=jdbc:postgresql://postgres:5432 --database=postgresdb --schema=example --username=user1 --password=pA55w0rd123 --admin=admin1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
+$ ./dm.sh -u --url=jdbc:postgresql://postgres:5432 --database=postgresdb --schema=example --username=user1 --password=pA55w0rd123 --admin=admin1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
 ```
 
 
@@ -194,3 +194,14 @@ postgresdb=> SELECT filename, exectype FROM databasechangelog;
 ```
 
 
+<br/>
+
+### Генерация кода
+
+
+
+<br/>
+
+```
+$ mvn clean install
+```

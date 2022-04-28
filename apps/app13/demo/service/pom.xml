@@ -60,12 +60,12 @@
                             <goal>qarcher</goal>
                         </goals>
                         <configuration>
-                            <skip>true</skip>
+                            <skip>false</skip>
                             <qarcherService>http://dsagregator2:8030</qarcherService>
                             <targetPackage>ru.diasoft.digitalq</targetPackage>
-                            <qarcherModuleName>DQ Mobile Investment Client Portfolio</qarcherModuleName>
+                            <qarcherModuleName>DQ Hackathon Tutorial</qarcherModuleName>
                             <!--    -->
-                            <qarcherVersion>1.01.01</qarcherVersion>
+                            <qarcherVersion>1.01.00</qarcherVersion>
                             <!--    -->
                             <restApi>${dqcodegen.rest.api}</restApi>
                             <restModuleSplit>true</restModuleSplit>
