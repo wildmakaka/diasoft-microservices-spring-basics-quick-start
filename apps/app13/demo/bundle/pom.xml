@@ -3,9 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>ru.diasoft.micro</groupId>
+        <groupId>ru.diasoft.digitalq</groupId>
         <artifactId>demo-parent</artifactId>
-        <version>1.01.01-SNAPSHOT</version>
+        <version>1.00.01-SNAPSHOT</version>
     </parent>
 
     <artifactId>demo-bundle</artifactId>
@@ -15,7 +15,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>ru.diasoft.micro</groupId>
+            <groupId>ru.diasoft.digitalq</groupId>
             <artifactId>demo-db</artifactId>
             <version>${project.version}</version>
         </dependency>

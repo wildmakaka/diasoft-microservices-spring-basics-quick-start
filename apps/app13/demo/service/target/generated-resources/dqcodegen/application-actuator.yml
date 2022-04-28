@@ -1,0 +1,10 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        #exclude: env,beans
+  metrics:
+    export:
+      atlas:
+        enabled: ${MANAGENEMT_ATLAS_ENABLED:false} 

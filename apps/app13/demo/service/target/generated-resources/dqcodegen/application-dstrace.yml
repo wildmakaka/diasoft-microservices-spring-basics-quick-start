@@ -1,0 +1,6 @@
+
+dstrace:
+  enabled: ${TRACER_ENABLE:true}
+  mode: ${TRACE_MODE:develop}
+  collector:
+    address: ${TRACER_HOST:localhost}:${TRACER_PORT:9411}

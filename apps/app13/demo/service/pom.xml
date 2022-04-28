@@ -3,9 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>ru.diasoft.micro</groupId>
+        <groupId>ru.diasoft.digitalq</groupId>
         <artifactId>demo-parent</artifactId>
-        <version>1.01.01-SNAPSHOT</version>
+        <version>1.00.01-SNAPSHOT</version>
     </parent>
 
     <artifactId>demo</artifactId>
@@ -62,7 +62,7 @@
                         <configuration>
                             <skip>true</skip>
                             <qarcherService>http://dsagregator2:8030</qarcherService>
-                            <targetPackage>ru.diasoft.micro</targetPackage>
+                            <targetPackage>ru.diasoft.digitalq</targetPackage>
                             <qarcherModuleName>DQ Mobile Investment Client Portfolio</qarcherModuleName>
                             <!--    -->
                             <qarcherVersion>1.01.01</qarcherVersion>
@@ -86,7 +86,7 @@
                         <configuration>
                             <skip>true</skip>
                             <qarcherService>http://dsagregator2:8050</qarcherService>
-                            <targetPackage>ru.diasoft.micro</targetPackage>
+                            <targetPackage>ru.diasoft.digitalq</targetPackage>
                             <qarcherModuleName>DQ Mobile Investment Client Portfolio</qarcherModuleName>
                             <!--    -->
                             <qarcherVersion>1.01.01</qarcherVersion>
@@ -194,7 +194,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <artifactId>demo-db</artifactId>
-                                    <groupId>ru.diasoft.micro</groupId>
+                                    <groupId>ru.diasoft.digitalq</groupId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>

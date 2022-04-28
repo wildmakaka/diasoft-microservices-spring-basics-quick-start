@@ -1,0 +1,6 @@
+    
+logging:
+  config: classpath:log4j2.xml
+  level:
+    root: ${LOGGING_ROOT_LEVEL:INFO}
+    ru.diasoft: ${LOGGING_LEVEL:INFO}

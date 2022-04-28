@@ -7,9 +7,9 @@
     <artifactId>archetype-parent</artifactId>
     <version>2.03.02-22042201</version>
   </parent>
-  <groupId>ru.diasoft.micro</groupId>
+  <groupId>ru.diasoft.digitalq</groupId>
   <artifactId>demo-parent</artifactId>
-  <version>1.01.01-SNAPSHOT</version>
+  <version>1.00.01-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>demo - parent</name>
   <url>http://www.diasoft.com</url>
