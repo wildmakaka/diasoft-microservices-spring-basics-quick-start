@@ -55,7 +55,7 @@ $ sudo vi /etc/hosts
 
 ```
 // Connect
-$ PGPASSWORD=pA55w0rd123 psql -U user1 -h postgres -p 5432 -d postgres-db
+$ PGPASSWORD=pA55w0rd123 psql -U admin1 -h postgres -p 5432 -d postgresdb
 ```
 
 <br/>
@@ -120,48 +120,77 @@ $ cd demo-db-1.00.01-SNAPSHOT
 
 ```
 $ chmod +x ./dm.sh
-$ ./dm.sh -d -c -i --url=jdbc:postgresql://postgres:5432 --database=postgres-db --schema=example --username=user2 --password=pA55w0rd123 --admin=user1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
+$ ./dm.sh -d -c -i --url=jdbc:postgresql://postgres:5432 --database=postgresdb --schema=example --username=user1 --password=pA55w0rd123 --admin=admin1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
 ```
 
 
 <br/>
 
+![Application](/img/app013-pic03.png?raw=true)
+
+
+<br/>
 
 ```
-.:lib/slf4j-api-1.7.25.jar:lib/jtds-1.3.1.jar:lib/slf4j-simple-1.7.29.jar:lib/liquibase-core-4.2.2.jar:lib/demo-db-1.00.01-SNAPSHOT.jar:lib/database-manager-core-9.05.01-21122301.jar:lib/logback-core-1.2.3.jar:lib/ojdbc8-21.4.0.0.1.jar:lib/jconnect-7.0.jar:lib/postgresql-42.3.2.jar:lib/db2jcc-3.53.71.jar:lib/snakeyaml-1.25.jar:lib/orai18n-21.4.0.0.1.jar
-found resource bundle in version/version
-Apr 28, 2022 11:16:48 AM ru.diasoft.fa.platform.database.DatabaseManager initVersion
-INFO: found resource bundle in version/version
-resource bundle version 1.00.01-SNAPSHOT
-Apr 28, 2022 11:16:48 AM ru.diasoft.fa.platform.database.DatabaseManager initVersion
-INFO: resource bundle version 1.00.01-SNAPSHOT
-Locale.getDefault(): en_US
-Enabled ChangeLog property:
-  dbmanager.schema
-  mastername
-  dbmanager.database
-  dbmanager.password
-  dbmanager.url
-  dbmanager.adminPassword
-  dbmanager.admin
-  dbmanager.driver
-  dbmanager.username
-Apr 28, 2022 11:16:49 AM ru.diasoft.fa.platform.database.PostgreSQLDatabaseManager dropDatabase
-INFO: Unable to drop schema 'example' in the database 'postgres-db', because schema does not exist
-Apr 28, 2022 11:16:49 AM ru.diasoft.fa.platform.database.PostgreSQLDatabaseManager dropDatabase
-SEVERE: Erorr in query: do $$ begin if exists (select * from pg_user where usename = 'user2') then revoke all privileges on database postgres-db from user2; end if; end; $$;
-Exception in thread "main" org.postgresql.util.PSQLException: ERROR: syntax error at or near "-"
-  Position: 118
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2675)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2365)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:355)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:329)
-	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:315)
-	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:291)
-	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:265)
-	at ru.diasoft.fa.platform.database.PostgreSQLDatabaseManager.dropDatabase(PostgreSQLDatabaseManager.java:232)
-	at ru.diasoft.fa.platform.database.DatabaseManager.main(DatabaseManager.java:636)
+$ chmod +x ./dm.sh
+$ ./dm.sh -i --url=jdbc:postgresql://postgres:5432 --database=postgresdb --schema=example --username=user1 --password=pA55w0rd123 --admin=admin1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
 ```
+
+
+<br/>
+
+![Application](/img/app013-pic04.png?raw=true)
+
+<br/>
+
+```
+$ PGPASSWORD=pA55w0rd123 psql -U user1 -h postgres -p 5432 -d postgresdb
+```
+
+<br/>
+
+```
+postgresdb=> \dn
+ List of schemas
+  Name   | Owner  
+---------+--------
+ example | user1
+ public  | admin1
+
+```
+
+<br/>
+
+```
+=> SET search_path TO example;
+```
+
+<br/>
+
+
+```
+postgresdb=> \dt
+                List of relations
+ Schema  |         Name          | Type  | Owner 
+---------+-----------------------+-------+-------
+ example | auto_pk_support       | table | user1
+ example | databasechangelog     | table | user1
+ example | databasechangeloglock | table | user1
+ example | rights_policyset      | table | user1
+(4 rows)
+```
+
+
+<br/>
+
+```
+postgresdb=> SELECT filename, exectype FROM databasechangelog;
+          filename           | exectype 
+-----------------------------+----------
+ permission/permission.1.xml | EXECUTED
+ mdpid/0.0.0.xml             | EXECUTED
+ mdpid/0.0.0.xml             | EXECUTED
+ 1.00.01/1.00.01.xml         | EXECUTED
+```
+
 
