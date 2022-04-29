@@ -14,7 +14,7 @@
 
 5. Создать микросервис ServiceDiscovery, используя spring-cloud-starter-netflix-eureka-server.
 
-6. Создать микросервис  API Gateway, используя spring-cloud-starter-gateway.
+6. Создать микросервис API Gateway, используя spring-cloud-starter-gateway.
 
 7. Микросервис "demo" при старте должен зарегистрироваться в ServiceDiscovery.
 
@@ -82,7 +82,8 @@ $ mvn -B archetype:generate -DarchetypeGroupId=ru.diasoft.micro -DarchetypeArtif
 <br/>
 
 ```
-$ mvn clean install
+// $ mvn clean install
+$ mvn clean install -Dmaven.test.skip=true
 ```
 
 <br/>
@@ -199,9 +200,12 @@ postgresdb=> SELECT filename, exectype FROM databasechangelog;
 ### Генерация кода
 
 
-
 <br/>
 
 ```
-$ mvn clean install
+$ mvn clean install -Dmaven.test.skip=true
 ```
+
+<br/>
+
+58:00
