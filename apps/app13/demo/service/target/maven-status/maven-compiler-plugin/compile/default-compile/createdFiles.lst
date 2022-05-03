@@ -1,4 +1,15 @@
+ru/diasoft/digitalq/controller/SmsVerificationController.class
 ru/diasoft/digitalq/config/RestTemplateConfig.class
+ru/diasoft/digitalq/service/SmsVerificationService.class
+ru/diasoft/digitalq/service/SmsVerificationServiceBase.class
+ru/diasoft/digitalq/controller/dto/SmsVerificationCheckResponse.class
+ru/diasoft/digitalq/controller/dto/SmsVerificationCheckRequest.class
+ru/diasoft/digitalq/controller/dto/SmsVerificationPostRequestMock.class
 ru/diasoft/digitalq/config/SecurityConfig.class
 ru/diasoft/digitalq/DemoApplication.class
 ru/diasoft/digitalq/config/ServletInitializer.class
+ru/diasoft/digitalq/controller/dto/SmsVerificationPostRequest.class
+ru/diasoft/digitalq/controller/dto/SmsVerificationPostResponse.class
+ru/diasoft/digitalq/controller/dto/SmsVerificationCheckRequestMock.class
+ru/diasoft/digitalq/controller/dto/SmsVerificationPostResponseMock.class
+ru/diasoft/digitalq/controller/dto/SmsVerificationCheckResponseMock.class

@@ -205,14 +205,45 @@ postgresdb=> SELECT filename, exectype FROM databasechangelog;
 
 ### Подключить к микросервису плагин для генерации кода по модулю DQHakaTutor версии 1.01.00 и сгенерировать код.
 
-Прописали.
-
+```xml
+<executions>
+    <execution>
+        <id>Generate REST Controller by Q.Archer</id>
+        <!-- DQCodeGen+Q.Archer https://conf.diasoft.ru/pages/viewpage.action?pageId=121474970 -->
+        <goals>
+            <goal>qarcher</goal>
+        </goals>
+        <configuration>
+            <skip>false</skip>
+            <qarcherService>http://dsagregator2:8030</qarcherService>
+            <targetPackage>ru.diasoft.digitalq</targetPackage>
+            <qarcherModuleName>DQ Hackathon Tutorial</qarcherModuleName>
+            <!--    -->
+            <qarcherVersion>1.01.00</qarcherVersion>
+            <!--    -->
+            <restApi>${dqcodegen.rest.api}</restApi>
+            <restModuleSplit>true</restModuleSplit>
+            <useZonedDateTime>true</useZonedDateTime>
+            <useReactiveApi>false</useReactiveApi>
+            <useJsonNodeType>true</useJsonNodeType>
+            <useResponseDTO>true</useResponseDTO>
+            <generateCrud>true</generateCrud>
+            <crudAudit>true</crudAudit>
+        </configuration>
+    </execution>
+```
 
 <br/>
+
 
 ```
 $ mvn clean install -Dmaven.test.skip=true
 ```
+
+
+<br/>
+
+
 
 <br/>
 
