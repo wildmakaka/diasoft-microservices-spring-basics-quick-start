@@ -82,9 +82,13 @@ $ mvn -B archetype:generate -DarchetypeGroupId=ru.diasoft.micro -DarchetypeArtif
 <br/>
 
 ```
-// $ mvn clean install
-$ mvn clean install -Dmaven.test.skip=true
+$ cd demo/
+
+$ mvn clean install
+// $ mvn clean install -Dmaven.test.skip=true
 ```
+
+<!--
 
 <br/>
 
@@ -104,10 +108,12 @@ $ mvn clean install -Dmaven.test.skip=true
 
 ![Application](/img/app013-pic01.png?raw=true)
 
+-->
+
 <br/>
 
 ```
-$ cd /home/marley/projects/dev/diasoft/diasoft-microservices-spring-basics/apps/app13/demo/database/target
+$ cd database/target
 ```
 
 <br/>
@@ -125,22 +131,21 @@ $ ./dm.sh -d -c -i --url=jdbc:postgresql://postgres:5432 --database=postgresdb -
 ```
 
 
-<br/>
+<!-- <br/>
 
-![Application](/img/app013-pic03.png?raw=true)
+![Application](/img/app013-pic03.png?raw=true) -->
 
 
 <br/>
 
 ```
-$ chmod +x ./dm.sh
 $ ./dm.sh -u --url=jdbc:postgresql://postgres:5432 --database=postgresdb --schema=example --username=user1 --password=pA55w0rd123 --admin=admin1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
 ```
 
 
-<br/>
+<!-- <br/>
 
-![Application](/img/app013-pic04.png?raw=true)
+![Application](/img/app013-pic04.png?raw=true) -->
 
 <br/>
 
@@ -178,7 +183,8 @@ postgresdb=> \dt
  example | databasechangelog     | table | user1
  example | databasechangeloglock | table | user1
  example | rights_policyset      | table | user1
-(4 rows)
+ example | sms_verification      | table | user1
+(5 rows)
 ```
 
 
@@ -192,11 +198,14 @@ postgresdb=> SELECT filename, exectype FROM databasechangelog;
  mdpid/0.0.0.xml             | EXECUTED
  mdpid/0.0.0.xml             | EXECUTED
  1.00.01/1.00.01.xml         | EXECUTED
+(4 rows)
 ```
 
 <br/>
 
-### Генерация кода
+### Подключить к микросервису плагин для генерации кода по модулю DQHakaTutor версии 1.01.00 и сгенерировать код.
+
+Прописали.
 
 
 <br/>
