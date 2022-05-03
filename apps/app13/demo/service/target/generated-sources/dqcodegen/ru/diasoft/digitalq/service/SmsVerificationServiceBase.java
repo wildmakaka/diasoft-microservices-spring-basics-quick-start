@@ -20,7 +20,6 @@ import ru.diasoft.digitalq.controller.dto.SmsVerificationPostResponseMock;
 @Generated
 public class SmsVerificationServiceBase implements SmsVerificationService {
 
-
     public SmsVerificationServiceBase(
     ){
     }
@@ -36,7 +35,6 @@ public class SmsVerificationServiceBase implements SmsVerificationService {
             SmsVerificationPostRequest smsVerificationPostRequest) {
         return new SmsVerificationPostResponseMock();  
     } 
-
 
 }
 

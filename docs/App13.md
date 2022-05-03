@@ -78,6 +78,63 @@ Apache Maven 3.6.3
 $ mvn -B archetype:generate -DarchetypeGroupId=ru.diasoft.micro -DarchetypeArtifactId=template-archetype -DarchetypeVersion=RELEASE -DgroupId=ru.diasoft.digitalq -DartifactId=demo -Dversion=1.00.01-SNAPSHOT
 ```
 
+<br/>
+
+**database/src/marin/resources/1.00.01.xml**
+
+<br/>
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	
+    <property name="autoIncrement" value="false" dbms="postgresql,mssql,oracle"/>
+    <property name="autoIncrement" value="true" dbms="h2"/>
+
+    <changeSet id="1.0.1-createVerificationTable" author="Marley" context="update" runInTransaction="false" objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="sms_verification" />
+            </not>
+        </preConditions>
+
+        <createSequence sequenceName="sms_verification_verificationid_seq" incrementBy="1" startValue="1" />
+
+        <createTable tableName="sms_verification">
+            <column name="verificationid" type="NUMERIC(19,0)" autoIncrement="${autoIncrement}" defaultValueSequenceNext="sms_verification_verificationid_seq">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="processguid" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phonenumber" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="secretcode" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex tableName="sms_verification" indexName="k01_sms_verification" unique="true">
+            <column name="processguid"/>
+        </createIndex>
+        <createIndex tableName="sms_verification" indexName="k02_sms_verification" unique="true">
+            <column name="secretcode" />
+            <column name="status" />
+        </createIndex>
+
+        <comment>Creation of Test table </comment>
+
+    </changeSet>
+		
+</databaseChangeLog>
+```
 
 <br/>
 
@@ -205,6 +262,10 @@ postgresdb=> SELECT filename, exectype FROM databasechangelog;
 
 ### Подключить к микросервису плагин для генерации кода по модулю DQHakaTutor версии 1.01.00 и сгенерировать код.
 
+<br/>
+
+**service/src/main/pom.xml**
+
 ```xml
 <executions>
     <execution>
@@ -241,9 +302,12 @@ $ mvn clean install -Dmaven.test.skip=true
 ```
 
 
-<br/>
+<!-- <br/>
 
-
+```
+$ cd service/
+$ mvn spring-boot:run -P dev
+``` -->
 
 <br/>
 
@@ -267,3 +331,5 @@ POST
 GET
 
 Вводим processGuid и еще что-то из базы
+
+33:53

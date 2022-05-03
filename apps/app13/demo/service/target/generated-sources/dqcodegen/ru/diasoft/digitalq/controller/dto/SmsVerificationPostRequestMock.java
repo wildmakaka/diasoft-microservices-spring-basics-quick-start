@@ -15,5 +15,4 @@ public class SmsVerificationPostRequestMock extends SmsVerificationPostRequest {
             "PhoneNumber"
         );
     }
-
 }
