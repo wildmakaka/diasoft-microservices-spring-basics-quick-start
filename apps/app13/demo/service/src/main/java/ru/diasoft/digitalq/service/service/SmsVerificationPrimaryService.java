@@ -1,5 +1,6 @@
 package ru.diasoft.digitalq.service.service;
 
+import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
 
@@ -25,8 +26,9 @@ public class SmsVerificationPrimaryService implements SmsVerificationService{
 	@Override
 	public SmsVerificationCheckResponse dsSmsVerificationCheck(
 			SmsVerificationCheckRequest smsVerificationCheckRequest) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Optional<SmsVerification> smsVerification = repository.findBySecretCodeAndProcessGuidAndStatus(smsVerificationCheckRequest.getCode(), smsVerificationCheckRequest.getProcessGUID(), "OK");
+		return new SmsVerificationCheckResponse(smsVerification.isPresent());
 	}
 
 	@Override

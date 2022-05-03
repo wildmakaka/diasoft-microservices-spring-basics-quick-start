@@ -50,9 +50,9 @@ public class SmsVerificationRepositoryTest {
 			
 		SmsVerification createdEntity = repository.save(smsVerification);
 		
-		assertThat(repository.findBySecretCodeAndProcessGuidAndStatus(secretCode, guid, status).orElse(SmsVerification.builder().build())).isEqualToIgnoringGivenFields(createdEntity, "verificationId");
-		assertThat(repository.findBySecretCodeAndProcessGuidAndStatus("22222", guid, status).orElse(null)).isNotNull();
+		assertThat(repository.findBySecretCodeAndProcessGuidAndStatus(secretCode, guid, status).orElse(SmsVerification.builder().build())).isEqualTo(createdEntity);
+		assertThat(repository.findBySecretCodeAndProcessGuidAndStatus("22222", guid, status).isEmpty();
 		
 	}
 
-}
+} // The End of Class;

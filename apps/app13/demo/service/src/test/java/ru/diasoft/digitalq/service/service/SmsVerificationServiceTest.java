@@ -1,7 +1,9 @@
 package ru.diasoft.digitalq.service.service;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,6 +20,7 @@ import ru.diasoft.digitalq.controller.dto.SmsVerificationCheckResponse;
 import ru.diasoft.digitalq.controller.dto.SmsVerificationPostRequest;
 import ru.diasoft.digitalq.controller.dto.SmsVerificationPostResponse;
 import ru.diasoft.digitalq.service.SmsVerificationService;
+import ru.diasoft.digitalq.service.domain.SmsVerification;
 import ru.diasoft.digitalq.service.repositiory.SmsVerificationRepository;
 
 @RunWith(SpringRunner.class)
@@ -33,10 +36,21 @@ public class SmsVerificationServiceTest {
 	private final String VALID_SECRET_CODE = "0007";
 	private final String INVALID_SECRET_CODE = "0008";
 	private final String GUID = UUID.randomUUID().toString();
+	private final String STATUS = "OK";
 	
 	@Before(value = "")
 	public void init() {
 		service =  new SmsVerificationPrimaryService(repository);
+		
+		SmsVerification smsVerification = SmsVerification.builder()
+				.processGuid(GUID)
+				.phoneNumber(PHONE_NUMBER)
+				.secretCode(INVALID_SECRET_CODE)
+				.status(STATUS)
+				.build();
+		
+		when(repository.findBySecretCodeAndProcessGuidAndStatus(VALID_SECRET_CODE, GUID, STATUS)).thenReturn(Optional.of(smsVerification));
+		when(repository.findBySecretCodeAndProcessGuidAndStatus(INVALID_SECRET_CODE, GUID, STATUS)).thenReturn(Optional.empty());
 	}
 
 	@Test

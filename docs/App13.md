@@ -194,7 +194,6 @@ postgresdb=> SELECT filename, exectype FROM databasechangelog;
  1.00.01/1.00.01.xml         | EXECUTED
 ```
 
-
 <br/>
 
 ### Генерация кода
@@ -208,4 +207,23 @@ $ mvn clean install -Dmaven.test.skip=true
 
 <br/>
 
-58:00
+### Запуск
+
+
+<br/>
+
+```
+$ mvn clean install -Dmaven.test.skip=true -P dev
+```
+
+<br/>
+
+```
+localhost:7081/swagger-ui.html
+```
+
+POST
+
+GET
+
+Вводим processGuid и еще что-то из базы
