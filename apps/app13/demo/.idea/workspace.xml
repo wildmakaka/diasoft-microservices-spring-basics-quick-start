@@ -52,7 +52,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
-  <component name="RunManager" selected="Application.DemoApplication">
+  <component name="RunManager" selected="JUnit.SmsVerificationRepositoryTest.smsVerificationCreateTest">
     <configuration name="DemoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.diasoft.digitalq.DemoApplication" />
       <module name="demo" />
@@ -131,8 +131,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DemoApplication" />
         <item itemvalue="JUnit.SmsVerificationRepositoryTest.smsVerificationCreateTest" />
+        <item itemvalue="Application.DemoApplication" />
         <item itemvalue="JUnit.SmsVerificationRepositoryTest" />
         <item itemvalue="JUnit.SmsVerificationServiceTest.testDsSmsVerificationCheck" />
         <item itemvalue="JUnit.SmsVerificationServiceTest.init" />
