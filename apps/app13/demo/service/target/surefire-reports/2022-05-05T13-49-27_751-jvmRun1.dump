@@ -1,18 +1,39 @@
-# Created at 2022-05-05T13:21:57.364
-Thread dump for process (161410@workstation) after 30 seconds shutdown timeout:
-"surefire-forkedjvm-last-ditch-daemon-shutdown-thread-30s" 
+# Created at 2022-05-05T13:49:54.243
+Exiting self fork JVM. Received SHUTDOWN command from Maven shutdown hook.
+Thread dump before exiting the process (165376@workstation):
+"Thread-0" 
    java.lang.Thread.State: RUNNABLE
-        at sun.management.ThreadImpl.getThreadInfo1(Native Method)
-        at sun.management.ThreadImpl.getThreadInfo(ThreadImpl.java:178)
-        at org.apache.maven.surefire.booter.ForkedBooter.generateThreadDump(ForkedBooter.java:649)
-        at org.apache.maven.surefire.booter.ForkedBooter.access$400(ForkedBooter.java:82)
-        at org.apache.maven.surefire.booter.ForkedBooter$7.run(ForkedBooter.java:465)
-        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-        at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
-        at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.ClassLoader.defineClass1(Native Method)
+        at java.lang.ClassLoader.defineClass(ClassLoader.java:756)
+        at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+        at java.net.URLClassLoader.defineClass(URLClassLoader.java:473)
+        at java.net.URLClassLoader.access$100(URLClassLoader.java:74)
+        at java.net.URLClassLoader$1.run(URLClassLoader.java:369)
+        at java.net.URLClassLoader$1.run(URLClassLoader.java:363)
+        at java.security.AccessController.doPrivileged(Native Method)
+        at java.net.URLClassLoader.findClass(URLClassLoader.java:362)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+        at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:355)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+        at org.jacoco.agent.rt.internal_035b120.core.data.ExecutionDataWriter.<init>(ExecutionDataWriter.java:60)
+        at org.jacoco.agent.rt.internal_035b120.output.FileOutput.writeExecutionData(FileOutput.java:55)
+        at org.jacoco.agent.rt.internal_035b120.Agent.shutdown(Agent.java:137)
+        at org.jacoco.agent.rt.internal_035b120.Agent$1.run(Agent.java:54)
+
+"Thread-1" 
+   java.lang.Thread.State: RUNNABLE
+        at java.io.FileOutputStream.writeBytes(Native Method)
+        at java.io.FileOutputStream.write(FileOutputStream.java:326)
+        at java.io.BufferedOutputStream.write(BufferedOutputStream.java:122)
+        at java.io.PrintStream.write(PrintStream.java:480)
+        at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)
+        at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)
+        at org.apache.maven.surefire.api.util.internal.Channels$4.flushImpl(Channels.java:252)
+        at org.apache.maven.surefire.api.util.internal.AbstractNoninterruptibleWritableChannel.write(AbstractNoninterruptibleWritableChannel.java:79)
+        at org.apache.maven.surefire.api.util.internal.AbstractNoninterruptibleWritableChannel.write(AbstractNoninterruptibleWritableChannel.java:44)
+        at org.apache.maven.surefire.booter.spi.LegacyMasterProcessChannelEncoder.encodeAndPrintEvent(LegacyMasterProcessChannelEncoder.java:314)
+        at org.apache.maven.surefire.booter.spi.LegacyMasterProcessChannelEncoder.onJvmExit(LegacyMasterProcessChannelEncoder.java:121)
+        at org.apache.maven.surefire.booter.ForkedBooter$8.run(ForkedBooter.java:504)
         at java.lang.Thread.run(Thread.java:750)
 
 "SpringApplicationShutdownHook" 
@@ -23,6 +44,15 @@ Thread dump for process (161410@workstation) after 30 seconds shutdown timeout:
         at java.lang.Iterable.forEach(Iterable.java:75)
         at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:100)
         at java.lang.Thread.run(Thread.java:750)
+
+"Thread-8" 
+   java.lang.Thread.State: TIMED_WAITING
+        at java.lang.Object.wait(Native Method)
+        at org.h2.engine.Database.closeAllSessionsExcept(Database.java:1337)
+        at org.h2.engine.Database.closeImpl(Database.java:1399)
+        at org.h2.engine.Database.close(Database.java:1373)
+        at org.h2.engine.OnExitDatabaseCloser.onShutdown(OnExitDatabaseCloser.java:85)
+        at org.h2.engine.OnExitDatabaseCloser.run(OnExitDatabaseCloser.java:114)
 
 "SIGINT handler" 
    java.lang.Thread.State: WAITING
@@ -38,6 +68,17 @@ Thread dump for process (161410@workstation) after 30 seconds shutdown timeout:
         at sun.misc.Signal$1.run(Signal.java:212)
         at java.lang.Thread.run(Thread.java:750)
 
+"HikariPool-1 connection adder" 
+   java.lang.Thread.State: TIMED_WAITING
+        at sun.misc.Unsafe.park(Native Method)
+        at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+        at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+        at java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:467)
+        at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1073)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.Thread.run(Thread.java:750)
+
 "HikariPool-1 housekeeper" 
    java.lang.Thread.State: TIMED_WAITING
         at sun.misc.Unsafe.park(Native Method)
@@ -47,6 +88,32 @@ Thread dump for process (161410@workstation) after 30 seconds shutdown timeout:
         at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
         at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
         at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.Thread.run(Thread.java:750)
+
+"spring.cloud.inetutils" 
+   java.lang.Thread.State: RUNNABLE
+        at java.net.Inet6AddressImpl.getHostByAddr(Native Method)
+        at java.net.InetAddress$2.getHostByAddr(InetAddress.java:933)
+        at java.net.InetAddress.getHostFromNameService(InetAddress.java:618)
+        at java.net.InetAddress.getHostName(InetAddress.java:560)
+        at java.net.InetAddress.getHostName(InetAddress.java:532)
+        at org.springframework.cloud.commons.util.InetUtils$$Lambda$395/180711648.call(Unknown Source)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+        at java.lang.Thread.run(Thread.java:750)
+
+"spring.cloud.inetutils" 
+   java.lang.Thread.State: RUNNABLE
+        at java.net.Inet6AddressImpl.getHostByAddr(Native Method)
+        at java.net.InetAddress$2.getHostByAddr(InetAddress.java:933)
+        at java.net.InetAddress.getHostFromNameService(InetAddress.java:618)
+        at java.net.InetAddress.getHostName(InetAddress.java:560)
+        at java.net.InetAddress.getHostName(InetAddress.java:532)
+        at org.springframework.cloud.commons.util.InetUtils$$Lambda$395/180711648.call(Unknown Source)
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
         at java.lang.Thread.run(Thread.java:750)
 
@@ -73,13 +140,12 @@ Thread dump for process (161410@workstation) after 30 seconds shutdown timeout:
         at java.lang.Thread.run(Thread.java:750)
 
 "surefire-forkedjvm-command-thread" 
-   java.lang.Thread.State: BLOCKED
-        at java.lang.Shutdown.exit(Shutdown.java:215)
-        at java.lang.Runtime.exit(Runtime.java:109)
-        at java.lang.System.exit(System.java:971)
-        at org.apache.maven.surefire.booter.ForkedBooter.exit1(ForkedBooter.java:397)
-        at org.apache.maven.surefire.booter.ForkedBooter.access$800(ForkedBooter.java:82)
-        at org.apache.maven.surefire.booter.ForkedBooter$4.update(ForkedBooter.java:342)
+   java.lang.Thread.State: RUNNABLE
+        at sun.management.ThreadImpl.getThreadInfo1(Native Method)
+        at sun.management.ThreadImpl.getThreadInfo(ThreadImpl.java:178)
+        at org.apache.maven.surefire.booter.ForkedBooter.generateThreadDump(ForkedBooter.java:649)
+        at org.apache.maven.surefire.booter.ForkedBooter.access$400(ForkedBooter.java:82)
+        at org.apache.maven.surefire.booter.ForkedBooter$4.update(ForkedBooter.java:340)
         at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.callListeners(CommandReader.java:423)
         at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.exitByConfiguration(CommandReader.java:435)
         at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:388)
@@ -139,9 +205,9 @@ Thread dump for process (161410@workstation) after 30 seconds shutdown timeout:
         at liquibase.lockservice.StandardLockService.acquireLock(StandardLockService.java:251)
         at liquibase.lockservice.StandardLockService.waitForLock(StandardLockService.java:212)
         at liquibase.Liquibase.lambda$update$1(Liquibase.java:220)
-        at liquibase.Liquibase$$Lambda$893/512879721.run(Unknown Source)
+        at liquibase.Liquibase$$Lambda$893/1875312687.run(Unknown Source)
         at liquibase.Scope.lambda$child$0(Scope.java:160)
-        at liquibase.Scope$$Lambda$894/429179954.run(Unknown Source)
+        at liquibase.Scope$$Lambda$894/675344292.run(Unknown Source)
         at liquibase.Scope.child(Scope.java:169)
         at liquibase.Scope.child(Scope.java:159)
         at liquibase.Scope.child(Scope.java:138)
@@ -155,7 +221,7 @@ Thread dump for process (161410@workstation) after 30 seconds shutdown timeout:
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
         at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-        at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$482/1670445212.getObject(Unknown Source)
+        at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$482/51079645.getObject(Unknown Source)
         at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
         at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
         at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
@@ -176,7 +242,7 @@ Thread dump for process (161410@workstation) after 30 seconds shutdown timeout:
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
         at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-        at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$482/1670445212.getObject(Unknown Source)
+        at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$482/51079645.getObject(Unknown Source)
         at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
         at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
         at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
@@ -192,7 +258,7 @@ Thread dump for process (161410@workstation) after 30 seconds shutdown timeout:
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
         at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-        at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$482/1670445212.getObject(Unknown Source)
+        at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$482/51079645.getObject(Unknown Source)
         at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
         at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
         at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)

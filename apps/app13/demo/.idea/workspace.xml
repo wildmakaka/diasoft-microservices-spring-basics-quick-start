@@ -7,6 +7,31 @@
     <list default="true" id="7e28e650-19c4-4579-882d-511800993e2b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/test/java/ru/diasoft/digitalq/service/repository/SmsVerificationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/ru/diasoft/digitalq/service/repository/SmsVerificationRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/META-INF/build-info.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/META-INF/build-info.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/git.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/git.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/classes/qarch_swagger_DQ_Hackathon_Tutorial_ver_1_01_00.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/2022-05-05T13-20-08_880-jvmRun1.dump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-ru.diasoft.digitalq.service.repository.SmsVerificationRepositoryTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-ru.diasoft.micro.archunit.CayenneDependencyTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-ru.diasoft.micro.archunit.ControllerMethodReturnTypeTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-ru.diasoft.micro.archunit.ControllerOutsideAccessTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-ru.diasoft.micro.archunit.ControllerShouldContainAPITest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-ru.diasoft.micro.archunit.ControllerTransactionalTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-ru.diasoft.micro.archunit.EntityLocateDomainTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-ru.diasoft.micro.archunit.NamingConventionTests.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-ru.diasoft.micro.archunit.NamingPackageTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/TEST-ru.diasoft.micro.archunit.SwaggerAnnotationTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/ru.diasoft.digitalq.service.repository.SmsVerificationRepositoryTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/ru.diasoft.micro.archunit.CayenneDependencyTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/ru.diasoft.micro.archunit.ControllerMethodReturnTypeTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/ru.diasoft.micro.archunit.ControllerOutsideAccessTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/ru.diasoft.micro.archunit.ControllerShouldContainAPITest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/ru.diasoft.micro.archunit.ControllerTransactionalTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/ru.diasoft.micro.archunit.EntityLocateDomainTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/ru.diasoft.micro.archunit.NamingConventionTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/ru.diasoft.micro.archunit.NamingPackageTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/target/surefire-reports/ru.diasoft.micro.archunit.SwaggerAnnotationTest.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +75,7 @@
       <recent name="$PROJECT_DIR$/service/src/test/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SmsVerificationRepositoryTest.smsVerificationCreateTest">
+  <component name="RunManager" selected="Application.DemoApplication">
     <configuration name="DemoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.diasoft.digitalq.DemoApplication" />
       <module name="demo" />
@@ -129,8 +154,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SmsVerificationRepositoryTest.smsVerificationCreateTest" />
         <item itemvalue="Application.DemoApplication" />
+        <item itemvalue="JUnit.SmsVerificationRepositoryTest.smsVerificationCreateTest" />
         <item itemvalue="JUnit.SmsVerificationRepositoryTest" />
         <item itemvalue="JUnit.SmsVerificationServiceTest.testDsSmsVerificationCheck" />
         <item itemvalue="JUnit.SmsVerificationServiceTest.init" />
