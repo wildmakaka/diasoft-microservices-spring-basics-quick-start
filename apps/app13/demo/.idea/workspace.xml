@@ -6,21 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7e28e650-19c4-4579-882d-511800993e2b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/ru/diasoft/digitalq/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/ru/diasoft/digitalq/DemoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/java/ru/diasoft/digitalq/service/domain/SmsVerification.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/java/ru/diasoft/digitalq/service/domain/SmsVerification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/src/test/java/ru/diasoft/digitalq/service/repository/SmsVerificationRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/test/java/ru/diasoft/digitalq/service/repository/SmsVerificationRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/META-INF/build-info.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/META-INF/build-info.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/application-test.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/git.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/git.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/qarch_swagger_DQ_Hackathon_Tutorial_ver_1_01_00.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/demo-1.00.01-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/generated-sources/dqcodegen/ru/diasoft/digitalq/controller/SmsVerificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/generated-sources/dqcodegen/ru/diasoft/digitalq/controller/SmsVerificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/generated-sources/dqcodegen/ru/diasoft/digitalq/controller/dto/SmsVerificationPostRequestMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/generated-sources/dqcodegen/ru/diasoft/digitalq/controller/dto/SmsVerificationPostRequestMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/generated-sources/dqcodegen/ru/diasoft/digitalq/service/SmsVerificationServiceBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/generated-sources/dqcodegen/ru/diasoft/digitalq/service/SmsVerificationServiceBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
