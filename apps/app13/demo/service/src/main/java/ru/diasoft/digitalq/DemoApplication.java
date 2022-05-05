@@ -15,6 +15,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import lombok.Generated;
 
+@ComponentScan("ru.diasoft.digitalq")
 @EnableDiscoveryClient
 @EnableCaching
 @SpringBootApplication(scanBasePackages = {"ru.diasoft.micro", "ru.diasoft.digitalq"})

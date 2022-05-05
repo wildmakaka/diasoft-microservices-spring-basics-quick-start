@@ -19,13 +19,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @Table(name = "sms_verification")
+@SequenceGenerator(name = "sms_verification_verificationid_seq", allocationSize = 1)
 public class SmsVerification {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sms_verification_verificationid_seq")
-	@SequenceGenerator(name = "sms_verification_verificationid_seq", sequenceName = "sms_verification_verificationid_seq")
 	@Column(name = "verificationid")
-	private Long virificationId;
+	private Long verificationId;
 	
 	@Column(name = "processguid")
 	private String processGuid;
