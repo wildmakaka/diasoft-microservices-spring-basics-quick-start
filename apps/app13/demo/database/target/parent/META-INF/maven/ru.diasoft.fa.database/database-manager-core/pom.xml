@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <parent>
+            <groupId>ru.diasoft.fa.database</groupId>
+            <artifactId>database-manager-parent</artifactId>
+            <version>9.05.01-21122301</version>
+        </parent>
+
+
+        <groupId>ru.diasoft.fa.database</groupId>
+        <artifactId>database-manager-core</artifactId>
+        <version>9.05.01-21122301</version>
+        <name>Database Manager</name>
+
+        <description>Database Manager allows to drop, create, initialize and update databases</description>
+
+        <scm>
+            <connection>scm:git:http://git/platform/database-manager.git</connection>
+            <developerConnection>scm:git:git@git:platform/database-manager.git</developerConnection>
+        </scm>
+
+        <distributionManagement>
+            <repository>
+                <name>Diasoft Releases</name>
+                <id>diasoft_repo</id>
+                <url>http://cvssoa:8080/maven2/repo</url>
+            </repository>
+        </distributionManagement>
+
+        <profiles>
+            <profile>
+                <id>h2</id>
+                <activation>
+                    <activeByDefault>true</activeByDefault>
+                    <property>
+                        <name>dbsupport</name>
+                        <value>h2</value>
+                    </property>
+                </activation>
+                <build>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-surefire-plugin</artifactId>
+                            <configuration>
+                                <skipTests>true</skipTests>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </build>
+            </profile>
+        </profiles>
+
+        <dependencies>
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>4.2.2</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.4</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.17-18112601</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sourceforge.jtds</groupId>
+                <artifactId>jtds</artifactId>
+                <version>1.2.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>12.1.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>1.2.142</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>9.3</version>                                  
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>42.2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>6.0.jre7</version>
+            </dependency>
+        </dependencies>
+</project>

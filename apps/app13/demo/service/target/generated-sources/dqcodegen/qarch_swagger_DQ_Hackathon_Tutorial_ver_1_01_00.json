@@ -1,0 +1,135 @@
+{
+        "swagger": "2.0",
+        "info": {
+                "description": "Microservices DQ Hackathon Tutorial - DQ Hackathon демонстрационный модуль",
+                "version": "1.01.00",
+                "title": "DQ Hackathon Tutorial REST API Documentation"
+        },
+
+        "paths": {
+                "/v1/sms-verification": {
+                        "post": {
+                                "tags": ["SmsVerification"],
+                                "summary": "Отправка проверочного кода на телефон клиента.",
+                                "operationId": "dsSmsVerificationCreate",
+                                "consumes": ["application/json"],
+                                "produces": ["*/*"],
+
+                                "parameters": [
+                                        {
+                                                "name": "SmsVerificationPostRequest",
+                                                "in": "body",
+                                                "description": "",
+                                                "required": false,
+                                                "schema": {
+                                                      "$ref": "#/definitions/SmsVerificationPostRequest"
+                                                }
+                                        }
+                                ],
+                                     "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SmsVerificationPostResponse"
+                        }
+
+                    }
+                                     },
+                                "deprecated": false
+                        },
+                        "get": {
+                                "tags": ["SmsVerification"],
+                                "summary": "Метод проверяет, что введенный код соответствует отправленному.",
+                                "operationId": "dsSmsVerificationCheck",
+                                "consumes": ["application/json"],
+                                "produces": ["*/*"],
+
+                                "parameters": [
+                                        {
+                                                "name": "SmsVerificationCheckRequest",
+                                                "in": "body",
+                                                "description": "",
+                                                "required": false,
+                                                "schema": {
+                                                      "$ref": "#/definitions/SmsVerificationCheckRequest"
+                                                }
+                                        }
+                                ],
+                                     "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SmsVerificationCheckResponse"
+                        }
+
+                    }
+                                     },
+                                "deprecated": false
+                        }
+                }
+        },
+        "definitions": {
+                "SmsVerificationCheckRequest": {
+                        "type": "object",
+
+                        "properties": {
+                                "ProcessGUID": {
+
+                                        "type": "string",
+                                        "format": "",
+                                        "description": "GUID процесса"
+                                },
+                                "Code": {
+
+                                        "type": "string",
+                                        "format": "",
+                                        "description": "Проверочный код"
+                                }
+                        },
+
+                        "title": "SmsVerificationCheckRequest"
+                },
+                "SmsVerificationCheckResponse": {
+                        "type": "object",
+
+                        "properties": {
+                                "CheckResult": {
+
+                                        "type": "boolean",
+                                        "format": "",
+                                        "description": "Результат проверки"
+                                }
+                        },
+
+                        "title": "SmsVerificationCheckResponse"
+                },
+                "SmsVerificationPostRequest": {
+                        "type": "object",
+
+                        "properties": {
+                                "PhoneNumber": {
+
+                                        "type": "string",
+                                        "format": "",
+                                        "description": "Номер телефона"
+                                }
+                        },
+
+                        "title": "SmsVerificationPostRequest"
+                },
+                "SmsVerificationPostResponse": {
+                        "type": "object",
+
+                        "properties": {
+                                "ProcessGUID": {
+
+                                        "type": "string",
+                                        "format": "",
+                                        "description": "GUID процесса"
+                                }
+                        },
+
+                        "title": "SmsVerificationPostResponse"
+                }
+        }
+}

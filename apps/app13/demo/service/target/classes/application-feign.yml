@@ -1,0 +1,7 @@
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: ${FEIGN_CLIENT_CONNECT_TIMEOUT:300000}
+        readTimeout: ${FEIGN_CLIENT_READ_TIMEOUT:300000}

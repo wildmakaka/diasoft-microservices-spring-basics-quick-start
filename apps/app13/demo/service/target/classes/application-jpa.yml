@@ -1,0 +1,26 @@
+
+spring:
+  jpa:
+    database-platform: ${JPA_DIALECT}
+    show-sql: ${SHOW_SQL:true}
+    generate-ddl: ${GENERATE_DDL:false}
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+      naming: 
+        physical-strategy: ${JPA_STRATEGY:org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl}
+    properties:
+      hibernate:
+        globally_quoted_identifiers: ${DB_QUOTED_IDENTIFIERS:false}
+        jdbc:
+          time_zone: UTC
+          lob:
+            non_contextual_creation: true
+
+logging:
+  level:
+    org.hibernate.type: ${LOGGING_HIBERNATE_LEVEL:INFO} #To log values set TRACE
+
+dslogging:
+  jdbc:
+    enabled: ${LOGGING_JDBC_ENABLED:false}

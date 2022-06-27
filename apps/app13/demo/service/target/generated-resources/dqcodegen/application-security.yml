@@ -1,0 +1,12 @@
+security:
+  enabled: ${SECURITY_ENABLED:true}
+  oauth2:
+    client:
+      clientId: ${OAUTH2_CLIENT_ID}
+      clientSecret: ${OAUTH2_CLIENT_SECRET}
+      scope: openid
+      accessTokenUri: ${AUTH_SERVER_URL}/mdpauth/oauth/token
+      userAuthorizationUri: ${AUTH_SERVER_URL}/mdpauth/oauth/authorize
+    resource:
+      jwt:
+        key-uri: ${AUTH_SERVER_URL}/mdpauth/oauth/token_key

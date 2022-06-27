@@ -1,0 +1,9 @@
+chaos:
+  monkey:
+    enabled: ${CHAOS_MONKEY_ENABLED:false}
+    watcher:
+      component: ${CM_WATCHER_COMPONENT_ENABLED:false}
+      controller: ${CM_WATCHER_CONTROLLER_ENABLED:false}
+      repository: ${CM_WATCHER_REPOSITORY_ENABLED:false}
+      rest-controller: ${CM_WATCHER_REST_CONTROLLER_ENABLED:true}
+      service: ${CM_WATCHER_SERVICE_ENABLED:true}

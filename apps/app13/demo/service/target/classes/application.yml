@@ -1,0 +1,25 @@
+server:
+  port: ${SERVICE_PORT}
+  servlet:
+    context-path: /${SERVICE_NAME:demo} 
+
+spring:
+  application:
+    name: ${SERVICE_NAME:demo}
+  cloud:
+    config:
+      enabled: false
+    loadbalancer:
+      retry:
+        enabled: false
+  config:
+    use-legacy-processing: true
+  profiles:
+    include: shared
+
+
+mdpauditlib:
+  serviceName: ${SERVICE_NAME:demo}
+#  auditCommonsBufferedFlag: ${MDP_AUDIT_LIB_BUFFERED:true}
+#  auditBufferedSecondsDuration: ${MDP_AUDIT_LIB_BUFFER_DURATION:60}
+#  auditBufferedEventsCount: ${MDP_AUDIT_LIB_BUFFER_SIZE:100}
