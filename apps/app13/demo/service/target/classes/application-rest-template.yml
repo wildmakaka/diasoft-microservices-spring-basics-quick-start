@@ -1,4 +1,0 @@
-rest-template:
-  config:
-    connectTimeout: ${REST_TEMPLATE_CONNECT_TIMEOUT:300000}
-    readTimeout: ${REST_TEMPLATE_READ_TIMEOUT:300000}

@@ -5,7 +5,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
 
     <include file="permission/permissionChangeLog.xml"/>
-    <include file="mdpid/mdpidChangeLog.xml"/>
+    <include file="mdpid/mdpidChangeLog.xml" />
     <include file="1.00.01/1.00.01.xml" relativeToChangelogFile="true"/>
     
 </databaseChangeLog>

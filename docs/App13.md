@@ -302,7 +302,7 @@ $ mvn clean install -Dmaven.test.skip=true
 ```
 
 
-<!-- <br/>
+<!-- 
 
 ```
 $ cd service/
@@ -317,6 +317,7 @@ $ mvn spring-boot:run -P dev
 <br/>
 
 ```
+$ cd demo/
 $ mvn clean install -Dmaven.test.skip=true -P dev
 ```
 
