@@ -48,7 +48,7 @@
         <!-- database -->
         <dependencySet>
             <includes>
-                <include>ru.diasoft.digitalq:demo-db</include>
+                <include>ru.diasoft.micro:demo-db</include>
             </includes>
             <unpack>false</unpack>
             <outputDirectory>Demo/demo/database</outputDirectory>

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>ru.diasoft.digitalq</groupId>
+        <groupId>ru.diasoft.micro</groupId>
         <artifactId>demo-parent</artifactId>
         <version>1.00.01-SNAPSHOT</version>
     </parent>
@@ -62,7 +62,8 @@
                         <configuration>
                             <skip>false</skip>
                             <qarcherService>http://dsagregator2:8030</qarcherService>
-                            <targetPackage>ru.diasoft.digitalq</targetPackage>
+                            <targetPackage>${project.groupId}</targetPackage>
+                            <serviceName>SmsVerification</serviceName>
                             <qarcherModuleName>DQ Hackathon Tutorial</qarcherModuleName>
                             <!--    -->
                             <qarcherVersion>1.01.00</qarcherVersion>
@@ -86,7 +87,7 @@
                         <configuration>
                             <skip>true</skip>
                             <qarcherService>http://dsagregator2:8050</qarcherService>
-                            <targetPackage>ru.diasoft.digitalq</targetPackage>
+                            <targetPackage>ru.diasoft.micro</targetPackage>
                             <qarcherModuleName>DQ Mobile Investment Client Portfolio</qarcherModuleName>
                             <!--    -->
                             <qarcherVersion>1.01.01</qarcherVersion>
@@ -194,7 +195,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <artifactId>demo-db</artifactId>
-                                    <groupId>ru.diasoft.digitalq</groupId>
+                                    <groupId>ru.diasoft.micro</groupId>
                                     <version>${project.version}</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>
@@ -233,6 +234,9 @@
                         <dependency>ru.diasoft.micro:archetype-tests</dependency>
                     </dependenciesToScan>
                     <runOrder>alphabetical</runOrder>
+                    <classpathDependencyExcludes>
+                        <classpathDependencyExclude>org.apache.ignite:ignite-core</classpathDependencyExclude>
+                    </classpathDependencyExcludes>
                 </configuration>
             </plugin>
         </plugins>
@@ -301,7 +305,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
-            <version>1.18.20</version>
         </dependency>
         <!-- diasoft platform -->
         <dependency>
@@ -582,8 +585,8 @@
                 </dependency>
                 <!-- Security -->
                 <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-oauth2</artifactId>
+                    <groupId>ru.diasoft.micro.mdp.lib</groupId>
+                    <artifactId>qoauth</artifactId>
                 </dependency>
                 <!-- Swagger -->
                 <dependency>

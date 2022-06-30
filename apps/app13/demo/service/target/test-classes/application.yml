@@ -32,7 +32,7 @@ spring:
     change-log: classpath*:rootChangeLog.xml
 # Generate Events Publisher or Subsriber   
   kafka:
-    bootstrap-servers: localhost:9094    
+    bootstrap-servers: localhost:9092
 
 dstrace:
   enabled: false

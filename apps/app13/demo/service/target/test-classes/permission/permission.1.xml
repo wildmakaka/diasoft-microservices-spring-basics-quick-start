@@ -10,27 +10,28 @@
     <property name="clob.type" value="TEXT" dbms="mssql,postgresql,h2"/>
 
     <changeSet id="permission.1.1" author="svdovin" runInTransaction="false">
+      	<validCheckSum>8:dfdd854614081168d3c77521a571ceaf</validCheckSum>
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="RIGHTS_POLICYSET"/>
+                <tableExists tableName="rights_policyset"/>
             </not>
         </preConditions>
-        <createTable tableName="RIGHTS_POLICYSET">
-            <column name="RECORDID" type="NUMERIC(19, 0)" remarks="Идентификатор записи">
-                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_RIGHTS_POLICYSET"/>
+        <createTable tableName="rights_policyset">
+            <column name="recordid" type="NUMERIC(19, 0)" remarks="Идентификатор записи">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_rights_policyset"/>
             </column>
-            <column name="OBJECTSYSNAME" type="${varchar.prefix}VARCHAR(255)" remarks="Системное наименование бизнес-объекта">
+            <column name="objectsysname" type="${varchar.prefix}VARCHAR(255)" remarks="Системное наименование бизнес-объекта">
                 <constraints nullable="false"/>
             </column>
-            <column name="POLICYSETID" type="${varchar.prefix}VARCHAR(255)" remarks="Системное наименование набора политик доступа">
+            <column name="policysetid" type="${varchar.prefix}VARCHAR(255)" remarks="Системное наименование набора политик доступа">
                 <constraints nullable="false"/>
             </column>
-            <column name="POLICYSETBODY" type="${clob.type}" remarks="Тело набора политик доступа в виде xml-строки">
+            <column name="policysetbody" type="${clob.type}" remarks="Тело набора политик доступа в виде xml-строки">
                 <constraints nullable="true"/>
             </column>
         </createTable>
-        <createIndex tableName="RIGHTS_POLICYSET" indexName="K01_RIGHTS_POLICYSET" unique="false">
-            <column name="OBJECTSYSNAME"/>
+        <createIndex tableName="rights_policyset" indexName="k01_rights_policyset" unique="false">
+            <column name="objectsysname"/>
         </createIndex>
     </changeSet>
 
