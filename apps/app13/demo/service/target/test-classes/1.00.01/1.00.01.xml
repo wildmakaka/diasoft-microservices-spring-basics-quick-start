@@ -37,7 +37,7 @@
         <createIndex tableName="sms_verification" indexName="k01_sms_verification" unique="true">
             <column name="processguid"/>
         </createIndex>
-        <createIndex tableName="sms_verification" indexName="k02_sms_verification" unique="true">
+        <createIndex tableName="sms_verification" indexName="k02_sms_verification" unique="false">
             <column name="secretcode" />
             <column name="status" />
         </createIndex>
