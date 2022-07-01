@@ -22,12 +22,14 @@ public class SmsVerificationRepositoryTest {
 	public void smsVerificationCreateTest() {
 
 		String guid = UUID.randomUUID().toString();
+		String secretCode = "0007";
+		String status = "WAITING";
 
 		SmsVerificationEntity smsVerification = SmsVerificationEntity.builder()
 			.processGuid(guid)
 			.phoneNumber("123456789")
-			.secretCode("0007")
-			.status("WAITING")
+			.secretCode(secretCode)
+			.status(status)
 			.build();
 
 		SmsVerificationEntity createdEntity = repository.save(smsVerification);

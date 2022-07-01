@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ru.diasoft.micro.repository.SmsVerificationRepositoryTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 221.341 s - in ru.diasoft.micro.repository.SmsVerificationRepositoryTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 179.007 s - in ru.diasoft.micro.repository.SmsVerificationRepositoryTest
