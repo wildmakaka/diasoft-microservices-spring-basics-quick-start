@@ -31,7 +31,7 @@ $ sudo apt install -y postgresql-client-common postgresql-client
 <br/>
 
 ```
-$ cd app05-db
+$ cd app-db
 $ docker-compose up
 ```
 

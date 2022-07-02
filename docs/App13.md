@@ -32,11 +32,10 @@ http://gitflex.diasoft.ru/FinCore/mavensettings/-/blob/master/developer/settings
 <br/>
 
 ```
-$ cd app05-db
+$ cd app-db
 $ sudo rm -rf PGDATA/
 $ docker-compose up
 ```
-
 
 <br/>
 
@@ -54,7 +53,7 @@ $ sudo vi /etc/hosts
 <br/>
 
 ```
-// Connect
+// Connect check
 $ PGPASSWORD=pA55w0rd123 psql -U admin1 -h postgres -p 5432 -d postgresdb
 ```
 
@@ -309,7 +308,7 @@ $ mvn spring-boot:run -P dev
 
 <br/>
 
-### Запуск
+### Запуск Тестов
 
 
 <br/>
@@ -324,13 +323,19 @@ $ mvn test -Dtest="ru.diasoft.micro.repository.SmsVerificationRepositoryTest" -a
 $ mvn test -Dtest="ru.diasoft.micro.service.SmsVerificationServiceTest" -am -DfailIfNoTests=false
 ```
 
+<br/>
+
+### Запуск Приложения
 
 
 <br/>
 
 ```
 $ cd demo/
-$ mvn clean install -Dmaven.test.skip=true -P dev
+$ mvn package -Dmaven.test.skip=true
+$ cd service/target
+$ java -jar ./demo-1.00.01-SNAPSHOT.jar -P dev
+
 ```
 
 <br/>

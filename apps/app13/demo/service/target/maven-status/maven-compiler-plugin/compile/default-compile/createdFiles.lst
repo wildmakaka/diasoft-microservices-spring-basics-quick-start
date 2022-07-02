@@ -4,7 +4,6 @@ ru/diasoft/micro/domain/SmsVerificationEntity.class
 ru/diasoft/micro/controller/dto/SmsVerificationCheckRequest.class
 ru/diasoft/micro/controller/dto/SmsVerificationCheckRequestMock.class
 ru/diasoft/micro/service/SmsVerificationServiceBase.class
-ru/diasoft/digitalq/service/domain/QSmsVerification.class
 ru/diasoft/micro/controller/dto/SmsVerificationPostResponseMock.class
 ru/diasoft/micro/DemoApplication.class
 ru/diasoft/micro/controller/dto/SmsVerificationPostResponse.class

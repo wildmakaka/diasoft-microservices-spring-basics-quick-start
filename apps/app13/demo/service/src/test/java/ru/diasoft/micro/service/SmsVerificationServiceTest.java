@@ -39,7 +39,7 @@ public class SmsVerificationServiceTest {
     private final String PHONE_NUMBER = "+495123456789";
     private final String VALID_SECRET_CODE = "0007";
     private final String INVALID_SECRET_CODE = "0008";
-    private final String STATUS = "WAITING";
+    private final String STATUS = "OK";
 
     //@Before(value = "")
     @Before

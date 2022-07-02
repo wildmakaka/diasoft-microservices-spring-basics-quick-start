@@ -5,7 +5,8 @@ mdp.discovery:
   discoveryClientName: ${DISCOVERY_CLIENT_NAME:disable}
 
 security: 
-  enabled: ${SECURITY_ENABLED:false} 
+#  enabled: ${SECURITY_ENABLED:false}
+  enabled: false
   oauth2: 
     client: 
       clientId:
@@ -21,9 +22,9 @@ spring:
 # Postgres
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/template2
-    username: postgres
-    password: 123456
+    url: jdbc:postgresql://postgres:5432/postgresdb
+    username: user1
+    password: pA55w0rd123
     hikari:
       connection-test-query:
   jpa:

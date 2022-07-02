@@ -1,4 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: ru.diasoft.micro.archunit.EntityLocateDomainTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 s - in ru.diasoft.micro.archunit.EntityLocateDomainTest
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.15 s <<< FAILURE! - in ru.diasoft.micro.archunit.EntityLocateDomainTest
+ru.diasoft.micro.archunit.EntityLocateDomainTest.entity_should_be_in_domain  Time elapsed: 0.144 s  <<< FAILURE!
+java.lang.AssertionError: 
+Architecture Violation [Priority: MEDIUM] - Rule 'classes that are annotated with @Entity should reside in any package ['..model..', '..domain..'], because Все Entity должны быть в пакетах domain, либо model!' was violated (1 times):
+Class <ru.diasoft.micro.service.SmsVerification> does not reside in any package ['..model..', '..domain..'] in (SmsVerification.java:0)
+	at ru.diasoft.micro.archunit.EntityLocateDomainTest.entity_should_be_in_domain(EntityLocateDomainTest.java:32)
+

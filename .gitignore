@@ -24,4 +24,4 @@ hs_err_pid*
 
 tags
 
-apps/app05-db/PGDATA/
+apps/app-db/PGDATA/
