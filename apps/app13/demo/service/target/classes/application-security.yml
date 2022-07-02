@@ -1,5 +1,5 @@
 security:
-  enabled: false
+  enabled: ${SECURITY_ENABLED:true}
   oauth2:
     client:
       clientId: ${OAUTH2_CLIENT_ID}

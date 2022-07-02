@@ -1,6 +1,4 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 demo - microservice,ru.diasoft.micro.service,SmsVerificationPrimaryService,0,62,0,0,0,16,0,3,0,3
-demo - microservice,ru.diasoft.micro.service,SmsVerification,274,3,46,0,8,1,39,1,16,1
-demo - microservice,ru.diasoft.micro.service,SmsVerification.SmsVerificationBuilder,74,0,0,0,1,0,8,0,8,0
 demo - microservice,ru.diasoft.micro.domain,SmsVerificationEntity,140,106,27,11,0,9,26,10,7,10
 demo - microservice,ru.diasoft.micro.domain,SmsVerificationEntity.SmsVerificationEntityBuilder,37,37,0,0,0,1,2,6,2,6

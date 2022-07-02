@@ -84,7 +84,7 @@ spring:
     bootstrap-servers: ${KAFKA_URL:localhost:9092}     
     admin:
       properties:
-        request.timeout.ms: ${KAFKA_REQUEST_TIMEOUT:5000}
+        request.timeout.ms: ${KAFKA_REQUEST_TIMEOUT:600}
 
 dstrace:
   enabled: ${TRACER_ENABLE:false}
