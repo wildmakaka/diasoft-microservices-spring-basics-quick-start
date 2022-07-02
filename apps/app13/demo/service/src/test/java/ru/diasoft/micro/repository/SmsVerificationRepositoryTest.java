@@ -53,8 +53,8 @@ public class SmsVerificationRepositoryTest {
 
 		 SmsVerificationEntity createdEntity = repository.save(smsVerification);
 
-		 assertThat(repository.findBySecretCodeAndProcessGuidAndStatus(secretCode, guid, status).orElse(SmsVerificationEntity.builder().build())).isEqualTo(createdEntity);
-		 assertThat(repository.findBySecretCodeAndProcessGuidAndStatus("22222", guid, status)).isEmpty();
+		 assertThat(repository.findBySecretCodeAndProcessGuid(secretCode, guid).orElse(SmsVerificationEntity.builder().build())).isEqualTo(createdEntity);
+		 assertThat(repository.findBySecretCodeAndProcessGuid("22222", guid)).isEmpty();
 	}
 
 } // The End of Class;

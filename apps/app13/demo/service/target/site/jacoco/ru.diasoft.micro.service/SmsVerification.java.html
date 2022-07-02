@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SmsVerification.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo - microservice</a> &gt; <a href="index.source.html" class="el_package">ru.diasoft.micro.service</a> &gt; <span class="el_source">SmsVerification.java</span></div><h1>SmsVerification.java</h1><pre class="source lang-java linenums">package ru.diasoft.micro.service;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+<span class="nc" id="L16">@AllArgsConstructor</span>
+<span class="fc" id="L17">@NoArgsConstructor</span>
+<span class="nc bnc" id="L18" title="All 46 branches missed.">@Data</span>
+<span class="nc" id="L19">@Builder</span>
+@Entity
+@Table(name = &quot;sms_verification&quot;)
+@SequenceGenerator(name = &quot;sms_verification_verificationid_seq&quot;, allocationSize = 1)
+public class SmsVerification {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;sms_verification_verificationid_seq&quot;)
+	@Column(name = &quot;verificationid&quot;)
+<span class="nc" id="L28">	private Long verificationId;</span>
+	
+	@Column(name = &quot;processguid&quot;)
+<span class="nc" id="L31">	private String processGuid;</span>
+	
+	@Column(name = &quot;phonenumber&quot;)
+<span class="nc" id="L34">	private String phoneNumber;</span>
+	
+	@Column(name = &quot;secretcode&quot;)
+<span class="nc" id="L37">	private String secretCode;</span>
+	
+	@Column(name = &quot;status&quot;)
+<span class="nc" id="L40">	private String status;</span>
+
+} // The End of Class;
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

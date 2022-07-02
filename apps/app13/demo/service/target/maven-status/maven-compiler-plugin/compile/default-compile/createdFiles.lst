@@ -1,3 +1,4 @@
+ru/diasoft/micro/service/QSmsVerification.class
 ru/diasoft/micro/config/ServletInitializer.class
 ru/diasoft/micro/domain/SmsVerificationEntity.class
 ru/diasoft/micro/controller/dto/SmsVerificationCheckRequest.class
@@ -12,10 +13,11 @@ ru/diasoft/micro/controller/dto/SmsVerificationCheckResponseMock.class
 ru/diasoft/micro/config/RestTemplateConfig.class
 ru/diasoft/micro/service/SmsVerificationService.class
 ru/diasoft/micro/domain/QSmsVerificationEntity.class
-ru/diasoft/digitalq/service/domain/SmsVerification.class
+ru/diasoft/micro/service/SmsVerification$SmsVerificationBuilder.class
 ru/diasoft/micro/repository/SmsVerificationRepository.class
 ru/diasoft/micro/domain/SmsVerificationEntity$SmsVerificationEntityBuilder.class
 ru/diasoft/micro/controller/dto/SmsVerificationPostRequest.class
 ru/diasoft/micro/controller/dto/SmsVerificationPostRequestMock.class
 ru/diasoft/micro/controller/SmsVerificationController.class
-ru/diasoft/digitalq/service/domain/SmsVerification$SmsVerificationBuilder.class
+ru/diasoft/micro/service/SmsVerification.class
+ru/diasoft/micro/service/SmsVerificationPrimaryService.class

@@ -9,5 +9,5 @@ import ru.diasoft.micro.domain.SmsVerificationEntity;
 
 @Repository
 public interface SmsVerificationRepository extends JpaRepository<SmsVerificationEntity, Long> {
-	Optional<SmsVerificationEntity> findBySecretCodeAndProcessGuidAndStatus(String secretCode, String processGuid, String status);
+	Optional<SmsVerificationEntity> findBySecretCodeAndProcessGuid(String secretCode, String processGuid);
 }

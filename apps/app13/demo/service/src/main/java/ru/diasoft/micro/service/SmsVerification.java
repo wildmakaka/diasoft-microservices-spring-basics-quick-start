@@ -1,4 +1,4 @@
-package ru.diasoft.digitalq.service.domain;
+package ru.diasoft.micro.service;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

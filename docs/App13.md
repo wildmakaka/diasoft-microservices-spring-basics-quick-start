@@ -315,8 +315,15 @@ $ mvn spring-boot:run -P dev
 <br/>
 
 ```
-$ mvn test -Dtest="ru.diasoft.micro.repository.SmsVerificationRepositoryTest#smsVerificationCreateTest" -am -DfailIfNoTests=false
+$ mvn test -Dtest="ru.diasoft.micro.repository.SmsVerificationRepositoryTest" -am -DfailIfNoTests=false
 ```
+
+<br/>
+
+```
+$ mvn test -Dtest="ru.diasoft.micro.service.SmsVerificationServiceTest" -am -DfailIfNoTests=false
+```
+
 
 
 <br/>
