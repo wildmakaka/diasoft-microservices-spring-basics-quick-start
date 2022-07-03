@@ -17,19 +17,22 @@ public class SmsVerificationRepositoryTest {
 	
 	@Autowired
 	private SmsVerificationRepository repository;
+
+	private final String GUID = UUID.randomUUID().toString();
+	private final String PHONE_NUMBER = "5555555";
+	private final String SECRET_CODE = "0007";
+	private final String WRONG_SECRET_CODE = "0006";
+	private final String STATUS_WAITING = "WAITING";
+	private final String STATUS_OK = "OK";
 	
 	@Test
 	public void smsVerificationCreateTest() {
 
-		String guid = UUID.randomUUID().toString();
-		String secretCode = "0007";
-		String status = "WAITING";
-
 		SmsVerificationEntity smsVerification = SmsVerificationEntity.builder()
-			.processGuid(guid)
-			.phoneNumber("123456789")
-			.secretCode(secretCode)
-			.status(status)
+			.processGuid(GUID)
+			.phoneNumber(PHONE_NUMBER)
+			.secretCode(SECRET_CODE)
+			.status(STATUS_WAITING)
 			.build();
 
 		SmsVerificationEntity createdEntity = repository.save(smsVerification);
@@ -40,21 +43,35 @@ public class SmsVerificationRepositoryTest {
 	@Test
 	public void findBySecretCodeAndProcessGuidAndStatusTest() {
 
-		String guid = UUID.randomUUID().toString();
-		String secretCode = "0007";
-		String status = "WAITING";
-
 		SmsVerificationEntity smsVerification = SmsVerificationEntity.builder()
-			.processGuid(guid)
-			.phoneNumber("123456789")
-			.secretCode(secretCode)
-			.status(status)
+			.processGuid(GUID)
+			.phoneNumber(PHONE_NUMBER)
+			.secretCode(SECRET_CODE)
+			.status(STATUS_WAITING)
 			.build();
 
 		 SmsVerificationEntity createdEntity = repository.save(smsVerification);
 
-		 assertThat(repository.findBySecretCodeAndProcessGuid(secretCode, guid).orElse(SmsVerificationEntity.builder().build())).isEqualTo(createdEntity);
-		 assertThat(repository.findBySecretCodeAndProcessGuid("22222", guid)).isEmpty();
+		 assertThat(repository.findBySecretCodeAndProcessGuid(SECRET_CODE, GUID).orElse(SmsVerificationEntity.builder().build())).isEqualTo(createdEntity);
+		 assertThat(repository.findBySecretCodeAndProcessGuid(WRONG_SECRET_CODE, GUID)).isEmpty();
 	}
+
+	@Test
+	public void updateStatusByProcessGuidTest() {
+		SmsVerificationEntity smsVerification =
+				SmsVerificationEntity.builder()
+						.processGuid(GUID)
+						.phoneNumber(PHONE_NUMBER)
+						.secretCode(SECRET_CODE)
+						.status(STATUS_WAITING)
+						.build();
+
+		SmsVerificationEntity createdEntity = repository.save(smsVerification);
+		repository.updateStatusByProcessGuid(STATUS_OK, GUID);
+
+		assertThat(repository.findById(createdEntity.getVerificationId())
+				.orElse(SmsVerificationEntity.builder().build()).getStatus()).isEqualTo(STATUS_OK);
+	}
+
 
 } // The End of Class;

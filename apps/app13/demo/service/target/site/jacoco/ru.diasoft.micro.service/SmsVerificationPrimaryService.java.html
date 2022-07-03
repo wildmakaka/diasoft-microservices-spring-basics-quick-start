@@ -14,41 +14,51 @@ import ru.diasoft.micro.controller.dto.SmsVerificationCheckResponse;
 import ru.diasoft.micro.controller.dto.SmsVerificationPostRequest;
 import ru.diasoft.micro.controller.dto.SmsVerificationPostResponse;
 import ru.diasoft.micro.domain.SmsVerificationEntity;
+import ru.diasoft.micro.model.SmsVerificationMessage;
 import ru.diasoft.micro.repository.SmsVerificationRepository;
+import ru.diasoft.micro.smsverificationcreated.publish.SmsVerificationCreatedPublishGateway;
 
-<span class="fc" id="L19">@RequiredArgsConstructor</span>
+<span class="fc" id="L21">@RequiredArgsConstructor</span>
 @Service
 @Primary
 public class SmsVerificationPrimaryService implements SmsVerificationService{
 
     private final SmsVerificationRepository repository;
+    private final SmsVerificationCreatedPublishGateway messagingGateway;
 
     @Override
     public SmsVerificationCheckResponse dsSmsVerificationCheck(
             SmsVerificationCheckRequest smsVerificationCheckRequest) {
-<span class="fc" id="L29">        Optional&lt;SmsVerificationEntity&gt; smsVerificationEntity = repository.findBySecretCodeAndProcessGuid(</span>
-<span class="fc" id="L30">                smsVerificationCheckRequest.getCode(),</span>
-<span class="fc" id="L31">                smsVerificationCheckRequest.getProcessGUID()</span>
+<span class="fc" id="L32">        Optional&lt;SmsVerificationEntity&gt; smsVerificationEntity = repository.findBySecretCodeAndProcessGuid(</span>
+<span class="fc" id="L33">                smsVerificationCheckRequest.getCode(),</span>
+<span class="fc" id="L34">                smsVerificationCheckRequest.getProcessGUID()</span>
         );
-<span class="fc" id="L33">        return new SmsVerificationCheckResponse(smsVerificationEntity.isPresent());</span>
+<span class="fc" id="L36">        return new SmsVerificationCheckResponse(smsVerificationEntity.isPresent());</span>
     }
 
     @Override
     public SmsVerificationPostResponse dsSmsVerificationCreate(SmsVerificationPostRequest smsVerificationPostRequest) {
 
-<span class="fc" id="L39">        String guid = UUID.randomUUID().toString();</span>
-<span class="fc" id="L40">        String secretCode = String.format(&quot;%04d&quot;, new Random().nextInt(10000));</span>
-<span class="fc" id="L41">        String status = &quot;WAITING&quot;;</span>
+<span class="fc" id="L42">        String guid = UUID.randomUUID().toString();</span>
+<span class="fc" id="L43">        String secretCode = String.format(&quot;%04d&quot;, new Random().nextInt(10000));</span>
+<span class="fc" id="L44">        String status = &quot;WAITING&quot;;</span>
 
-<span class="fc" id="L43">        SmsVerificationEntity smsVerification = SmsVerificationEntity.builder()</span>
-<span class="fc" id="L44">                .phoneNumber(smsVerificationPostRequest.getPhoneNumber())</span>
-<span class="fc" id="L45">                .processGuid(guid)</span>
-<span class="fc" id="L46">                .secretCode(secretCode)</span>
-<span class="fc" id="L47">                .status(status)</span>
-<span class="fc" id="L48">                .build();</span>
+<span class="fc" id="L46">        SmsVerificationEntity smsVerification = SmsVerificationEntity.builder()</span>
+<span class="fc" id="L47">                .phoneNumber(smsVerificationPostRequest.getPhoneNumber())</span>
+<span class="fc" id="L48">                .processGuid(guid)</span>
+<span class="fc" id="L49">                .secretCode(secretCode)</span>
+<span class="fc" id="L50">                .status(status)</span>
+<span class="fc" id="L51">                .build();</span>
 
-<span class="fc" id="L50">        repository.save(smsVerification);</span>
-<span class="fc" id="L51">        return new SmsVerificationPostResponse(guid);</span>
+<span class="fc" id="L53">        repository.save(smsVerification);</span>
+
+<span class="fc" id="L55">        messagingGateway.smsVerificationCreated(SmsVerificationMessage.builder()</span>
+<span class="fc" id="L56">                .phoneNumber(smsVerificationPostRequest.getPhoneNumber())</span>
+<span class="fc" id="L57">                .guid(guid)</span>
+<span class="fc" id="L58">                .code(secretCode)</span>
+<span class="fc" id="L59">                .build());</span>
+
+<span class="fc" id="L61">        return new SmsVerificationPostResponse(guid);</span>
     }
 
 } // The End of Class;

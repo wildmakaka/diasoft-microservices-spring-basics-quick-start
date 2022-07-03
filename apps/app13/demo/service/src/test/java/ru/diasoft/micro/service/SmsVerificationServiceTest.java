@@ -23,6 +23,8 @@ import ru.diasoft.micro.domain.SmsVerificationEntity;
 import ru.diasoft.micro.repository.SmsVerificationRepository;
 import ru.diasoft.micro.service.SmsVerificationPrimaryService;
 import ru.diasoft.micro.service.SmsVerificationService;
+import ru.diasoft.micro.smsverificationcreated.publish.SmsVerificationCreatedPublishGateway;
+
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
@@ -32,6 +34,9 @@ public class SmsVerificationServiceTest {
 
     @Mock
     private SmsVerificationRepository repository;
+
+    @Mock
+    private SmsVerificationCreatedPublishGateway messagingGateway;
 
     private SmsVerificationService service;
 
@@ -45,7 +50,7 @@ public class SmsVerificationServiceTest {
     @Before
     public void init() {
 
-        service =  new SmsVerificationPrimaryService(repository);
+        service =  new SmsVerificationPrimaryService(repository, messagingGateway);
 
         SmsVerificationEntity smsVerificationEntity = SmsVerificationEntity.builder()
                 .processGuid(GUID)

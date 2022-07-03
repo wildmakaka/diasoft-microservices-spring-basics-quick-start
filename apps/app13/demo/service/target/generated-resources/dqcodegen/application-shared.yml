@@ -3,6 +3,7 @@ spring:
   profiles:
     include: >
       actuator,
+      async-bindings,
       chaos-engineering,
       data-source,
       dslogging,

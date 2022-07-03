@@ -314,7 +314,7 @@ $ mvn spring-boot:run -P dev
 <br/>
 
 ```
-$ mvn test -Dtest="ru.diasoft.micro.repository.SmsVerificationRepositoryTest" -am -DfailIfNoTests=false
+$ mvn test -Dtest="ru.diasoft.micro.repository.SmsVerificationRepositoryTest#smsVerificationCreateTest" -am -DfailIfNoTests=false
 ```
 
 <br/>
@@ -344,10 +344,31 @@ $ java -jar ./demo-1.00.01-SNAPSHOT.jar -P dev
 localhost:7081/swagger-ui.html
 ```
 
-POST
+POST 
 
 GET
 
 Вводим processGuid и еще что-то из базы
 
-33:53
+26:11
+
+
+
+
+<br/>
+
+```
+# SELECT * FROM sms_verification;
+```
+
+
+mvn test -Dtest="ru.diasoft.micro.repository.SmsVerificationRepositoryTest#smsVerificationCreateTest" -am -DfailIfNoTests=false
+
+
+$ kafka-topics.sh     --zookeeper localhost:2181     --create     --partitions 3     --replication-factor 2     --topic dq-mdp-audit-json-events-in
+
+
+smsVerificationCreatedPublish
+smsVerificationDeliveredSubscribe
+dq-mdp-versions-object-versions-in
+dq-mdp-audit-json-events-in

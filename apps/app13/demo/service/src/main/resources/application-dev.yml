@@ -80,11 +80,25 @@ spring:
 #      naming: 
 #        physical-strategy: ${JPA_STRATEGY:ru.diasoft.micro.lib.config.H2PhysicalNamingStrategy}
 # Generate Events Publisher or Subsriber
+
   kafka:
-    bootstrap-servers: ${KAFKA_URL:localhost:9092}     
+    bootstrap-servers: 192.168.1.9:9092
     admin:
       properties:
-        request.timeout.ms: ${KAFKA_REQUEST_TIMEOUT:600}
+        request.timeout.ms: ${KAFKA_REQUEST_TIMEOUT:1000}
+
+  cloud:
+    stream:
+      binders:
+        binderName:
+          type: kafka
+        bindings:
+          smsVerificationCreatedPublish:
+            destination: sms-verification-created
+          smsVerificationDeliveredSubscribe:
+            destination: sms-verification-delivered
+            group: demo
+
 
 dstrace:
   enabled: ${TRACER_ENABLE:false}

@@ -14,7 +14,9 @@ import ru.diasoft.micro.controller.dto.SmsVerificationCheckResponse;
 import ru.diasoft.micro.controller.dto.SmsVerificationPostRequest;
 import ru.diasoft.micro.controller.dto.SmsVerificationPostResponse;
 import ru.diasoft.micro.domain.SmsVerificationEntity;
+import ru.diasoft.micro.model.SmsVerificationMessage;
 import ru.diasoft.micro.repository.SmsVerificationRepository;
+import ru.diasoft.micro.smsverificationcreated.publish.SmsVerificationCreatedPublishGateway;
 
 @RequiredArgsConstructor
 @Service
@@ -22,6 +24,7 @@ import ru.diasoft.micro.repository.SmsVerificationRepository;
 public class SmsVerificationPrimaryService implements SmsVerificationService{
 
     private final SmsVerificationRepository repository;
+    private final SmsVerificationCreatedPublishGateway messagingGateway;
 
     @Override
     public SmsVerificationCheckResponse dsSmsVerificationCheck(
@@ -48,6 +51,13 @@ public class SmsVerificationPrimaryService implements SmsVerificationService{
                 .build();
 
         repository.save(smsVerification);
+
+        messagingGateway.smsVerificationCreated(SmsVerificationMessage.builder()
+                .phoneNumber(smsVerificationPostRequest.getPhoneNumber())
+                .guid(guid)
+                .code(secretCode)
+                .build());
+
         return new SmsVerificationPostResponse(guid);
     }
 

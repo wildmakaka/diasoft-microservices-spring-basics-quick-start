@@ -86,6 +86,7 @@
                         </goals>
                         <configuration>
                             <skip>true</skip>
+                            <serviceName>QArcherDemo</serviceName>
                             <qarcherService>http://dsagregator2:8050</qarcherService>
                             <targetPackage>ru.diasoft.micro</targetPackage>
                             <qarcherModuleName>DQ Mobile Investment Client Portfolio</qarcherModuleName>
@@ -103,6 +104,30 @@
                         <goals>
                             <goal>build-profiles</goal>
                         </goals>
+                    </execution>
+                    <!--Event publischer-->
+                    <execution>
+                        <id>Generate Events Publisher</id>
+                        <goals>
+                            <goal>local</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                            <targetPackage>${project.groupId}</targetPackage>
+                            <asyncApiFile>${project.basedir}/src/main/resources/event-publisher.yml</asyncApiFile>
+                        </configuration>
+                    </execution>
+                    <!--Event subscriber-->
+                    <execution>
+                        <id>Generate Events Subsriber</id>
+                        <goals>
+                            <goal>local</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                            <targetPackage>${project.groupId}</targetPackage>
+                            <asyncApiFile>${project.basedir}/src/main/resources/event-subscriber.yml</asyncApiFile>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
