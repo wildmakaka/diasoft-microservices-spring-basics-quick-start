@@ -1,6 +1,0 @@
-    
-dslogging:
-  nesting-level-limit: ${LOGGING_NESTING_LEVEL_LIMIT:2}
-  items-on-level-limit: ${LOGGING_ITEMS_ON_LEVEL_LIMIT:100}
-  exclude-items: ${LOGGING_EXCLUDE_ITEMS:}
-  include-items: ${LOGGING_INCLUDE_ITEMS:}

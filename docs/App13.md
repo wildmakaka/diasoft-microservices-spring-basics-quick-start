@@ -332,9 +332,11 @@ $ mvn test -Dtest="ru.diasoft.micro.service.SmsVerificationServiceTest" -am -Dfa
 
 ```
 $ cd demo/
-$ mvn package -Dmaven.test.skip=true
+$ mvn package
+// $ mvn package -Dmaven.test.skip=true
 $ cd service/target
-$ java -jar ./demo-1.00.01-SNAPSHOT.jar -P dev
+$ java -jar ./demo-1.00.01-SNAPSHOT.jar
+// $ java -jar ./demo-1.00.01-SNAPSHOT.jar -Dspring.profiles.active=dev
 
 ```
 
@@ -362,13 +364,15 @@ GET
 ```
 
 
-mvn test -Dtest="ru.diasoft.micro.repository.SmsVerificationRepositoryTest#smsVerificationCreateTest" -am -DfailIfNoTests=false
 
+### Пришлось создавать топики руками
 
-$ kafka-topics.sh     --zookeeper localhost:2181     --create     --partitions 3     --replication-factor 2     --topic dq-mdp-audit-json-events-in
+```
+$ kafka-topics.sh --zookeeper localhost:2181 --create --partitions 3     --replication-factor 2 --topic dq-mdp-audit-json-events-in
 
 
 smsVerificationCreatedPublish
 smsVerificationDeliveredSubscribe
 dq-mdp-versions-object-versions-in
 dq-mdp-audit-json-events-in
+```

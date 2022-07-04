@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ${SERVICE_NAME:demo}
+  cloud:
+    config:
+      enabled: false
+
+mdp.discovery:
+  discoveryClientName: disable
