@@ -216,7 +216,7 @@ $ cd database/target
 <br/>
 
 ```
-$ unzip demo-db-1.00.01-SNAPSHOT
+$ unzip demo-db-1.00.01-SNAPSHOT.zip
 $ cd demo-db-1.00.01-SNAPSHOT
 ```
 
@@ -224,7 +224,7 @@ $ cd demo-db-1.00.01-SNAPSHOT
 
 ```
 $ chmod +x ./dm.sh
-$ ./dm.sh -d -c -i --url=jdbc:postgresql://postgres:5432 --database=postgresdb --schema=example --username=user1 --password=pA55w0rd123 --admin=admin1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
+$ ./dm.sh -d -c -i --url=jdbc:postgresql://postgres:5432 --database=postgresdb --schema=public --username=user1 --password=pA55w0rd123 --admin=admin1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
 ```
 
 
@@ -236,7 +236,7 @@ $ ./dm.sh -d -c -i --url=jdbc:postgresql://postgres:5432 --database=postgresdb -
 <br/>
 
 ```
-$ ./dm.sh -u --url=jdbc:postgresql://postgres:5432 --database=postgresdb --schema=example --username=user1 --password=pA55w0rd123 --admin=admin1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
+$ ./dm.sh -u --url=jdbc:postgresql://postgres:5432 --database=postgresdb --schema=public --username=user1 --password=pA55w0rd123 --admin=admin1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
 ```
 
 
@@ -254,18 +254,17 @@ $ PGPASSWORD=pA55w0rd123 psql -U user1 -h postgres -p 5432 -d postgresdb
 
 ```
 postgresdb=> \dn
- List of schemas
-  Name   | Owner  
----------+--------
- example | user1
- public  | admin1
-
+List of schemas
+  Name  | Owner 
+--------+-------
+ public | user1
+(1 row)
 ```
 
 <br/>
 
 ```
-=> SET search_path TO example;
+=> SET search_path TO public;
 ```
 
 <br/>
@@ -273,14 +272,14 @@ postgresdb=> \dn
 
 ```
 postgresdb=> \dt
-                List of relations
- Schema  |         Name          | Type  | Owner 
----------+-----------------------+-------+-------
- example | auto_pk_support       | table | user1
- example | databasechangelog     | table | user1
- example | databasechangeloglock | table | user1
- example | rights_policyset      | table | user1
- example | sms_verification      | table | user1
+               List of relations
+ Schema |         Name          | Type  | Owner 
+--------+-----------------------+-------+-------
+ public | auto_pk_support       | table | user1
+ public | databasechangelog     | table | user1
+ public | databasechangeloglock | table | user1
+ public | rights_policyset      | table | user1
+ public | sms_verification      | table | user1
 (5 rows)
 ```
 
@@ -343,19 +342,15 @@ $ java -jar ./demo-1.00.01-SNAPSHOT.jar
 <br/>
 
 ```
-localhost:7081/swagger-ui.html
+http://localhost:7081/swagger-ui/
 ```
 
-POST 
+<br/>
 
-GET
-
-Вводим processGuid и еще что-то из базы
-
-26:11
-
-
-
+```
+// POST
+$ curl -X POST "http://localhost:7081/v1/sms-verification" -H "accept: */*" -H "Content-Type: application/json" -d "{\"PhoneNumber\":\"5555552\"}"
+```
 
 <br/>
 
@@ -363,16 +358,65 @@ GET
 # SELECT * FROM sms_verification;
 ```
 
+<br/>
 
+```
+// GET
+$ curl -X GET "http://localhost:7081/v1/sms-verification" -H "accept: */*" -H "Content-Type: application/json" -d "{\"Code\":\"5584\",\"ProcessGUID\":\"48dc48b4-e5a7-45e8-b13f-41a576418209\"}"
+```
+
+<br/>
 
 ### Пришлось создавать топики руками
 
 ```
 $ kafka-topics.sh --zookeeper localhost:2181 --create --partitions 3     --replication-factor 2 --topic dq-mdp-audit-json-events-in
 
-
 smsVerificationCreatedPublish
 smsVerificationDeliveredSubscribe
 dq-mdp-versions-object-versions-in
 dq-mdp-audit-json-events-in
 ```
+
+<br/>
+
+???
+
+sms-verification-created
+
+
+
+<br/>
+
+```
+// Receive a Message
+$ kafka-console-consumer.sh \
+    --bootstrap-server localhost:9092 \
+    --topic sms-verification-created \
+    --from-beginning
+
+^C
+```
+
+
+<br/>
+
+```
+// Receive a Message
+$ kafka-console-consumer.sh \
+    --bootstrap-server localhost:9092 \
+    --topic sms-verification-delivered \
+    --from-beginning
+
+^C
+```
+
+<br/>
+
+```
+{"guid":"57ab1698-d089-4f71-b15a-0a132e55af97","phoneNumber":"1000","code":"2256"}
+{"guid":"3a979430-b81e-4488-bd10-87b9cdd65e12","phoneNumber":"1000","code":"5404"}
+{"guid":"31ec18db-c359-44a6-b748-e9a2f313f5e3","phoneNumber":"string","code":"3053"}
+{"guid":"7010867a-38f5-4869-8dd3-3fae0d504212","phoneNumber":"5555555","code":"2761"}
+```
+

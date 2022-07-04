@@ -1,25 +1,107 @@
 server:
-  port: ${SERVICE_PORT}
-  servlet:
-    context-path: /${SERVICE_NAME:demo} 
+  port: ${SERVICE_PORT:7081}
+
+mdp.discovery:
+  discoveryClientName: ${DISCOVERY_CLIENT_NAME:disable}
+
+security:
+  enabled: false
+  oauth2:
+    client:
+      clientId:
+      clientSecret:
+      scope:
+      accessTokenUri:
+      userAuthorizationUri:
+    resource:
+      jwt:
+        key-uri:
 
 spring:
-  application:
-    name: ${SERVICE_NAME:demo}
+  # Postgres
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://postgres:5432/postgresdb?currentSchema=public
+    username: user1
+    password: pA55w0rd123
+    hikari:
+      connection-test-query:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        globally_quoted_identifiers: false
+        jdbc:
+          time_zone: UTC
+          lob:
+            non_contextual_creation: true
+
+  # Oracle
+  #  datasource:
+  #    driverClassName: oracle.jdbc.OracleDriver
+  #    url: jdbc:oracle:thin:@aml2devops:1521:tstdf
+  #    username: TEMPLATE
+  #    password: TEMPLATE
+  #    hikari:
+  #      connection-test-query:
+  #  jpa:
+  #    database-platform: org.hibernate.dialect.Oracle10gDialect
+  #    show-sql: true
+  #    generate-ddl: false
+  #    hibernate:
+  #      ddl-auto: none
+  #      naming:
+  #        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  #    properties:
+  #      hibernate:
+  #        globally_quoted_identifiers: false # Для PostgreSQL установить в true, для MSSQL, Oracle в false
+  #        jdbc:
+  #          time_zone: UTC
+  #          lob:
+  #            non_contextual_creation: true
+
+  # h2
+  #  datasource:
+  #    driverClassName: ${DB_DRIVER:org.h2.Driver}
+  #    url: ${DB_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1}
+  #    username: ${DB_LOGIN:sa}
+  #    password: ${DB_PASSWORD:}
+  #  jpa:
+  #    database-platform: ${JPA_DIALECT:org.hibernate.dialect.H2Dialect}
+  #    generate-ddl: ${GENERATE_DDL:true}
+  #    hibernate:
+  #      naming:
+  #        physical-strategy: ${JPA_STRATEGY:ru.diasoft.micro.lib.config.H2PhysicalNamingStrategy}
+  # Generate Events Publisher or Subsriber
+
+  kafka:
+    bootstrap-servers: 192.168.1.9:9092
+    admin:
+      properties:
+        request.timeout.ms: ${KAFKA_REQUEST_TIMEOUT:1000}
+
   cloud:
-    config:
-      enabled: false
-    loadbalancer:
-      retry:
-        enabled: false
-  config:
-    use-legacy-processing: true
-  profiles:
-    include: shared
+    stream:
+      binders:
+        binderName:
+          type: kafka
+      bindings:
+        smsVerificationCreatedPublish:
+          destination: sms-verification-created
+        smsVerificationDeliveredSubscribe:
+          destination: sms-verification-delivered
+          group: demo
 
 
-mdpauditlib:
-  serviceName: ${SERVICE_NAME:demo}
-#  auditCommonsBufferedFlag: ${MDP_AUDIT_LIB_BUFFERED:true}
-#  auditBufferedSecondsDuration: ${MDP_AUDIT_LIB_BUFFER_DURATION:60}
-#  auditBufferedEventsCount: ${MDP_AUDIT_LIB_BUFFER_SIZE:100}
+dstrace:
+  enabled: ${TRACER_ENABLE:false}
+
+logging:
+  level:
+    ru.diasoft: ${LOGGING_LEVEL:DEBUG}

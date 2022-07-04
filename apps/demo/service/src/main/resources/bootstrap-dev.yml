@@ -1,2 +1,0 @@
-mdp.discovery:
-  discoveryClientName: ${DISCOVERY_CLIENT_NAME:disable}
