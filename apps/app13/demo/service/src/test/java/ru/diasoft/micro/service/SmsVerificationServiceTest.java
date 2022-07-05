@@ -44,9 +44,8 @@ public class SmsVerificationServiceTest {
     private final String PHONE_NUMBER = "+495123456789";
     private final String VALID_SECRET_CODE = "0007";
     private final String INVALID_SECRET_CODE = "0008";
-    private final String STATUS = "OK";
+    private final String STATUS_OK = "OK";
 
-    //@Before(value = "")
     @Before
     public void init() {
 
@@ -56,7 +55,7 @@ public class SmsVerificationServiceTest {
                 .processGuid(GUID)
                 .phoneNumber(PHONE_NUMBER)
                 .secretCode(VALID_SECRET_CODE)
-                .status(STATUS)
+                .status(STATUS_OK)
                 .build();
 
         when(repository.findBySecretCodeAndProcessGuid(VALID_SECRET_CODE, GUID))

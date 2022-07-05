@@ -18,6 +18,8 @@ security:
         key-uri:
 
 spring:
+  application:
+    name: ${SERVICE_NAME:demo}
   # Postgres
   datasource:
     driverClassName: org.postgresql.Driver
@@ -41,44 +43,6 @@ spring:
           time_zone: UTC
           lob:
             non_contextual_creation: true
-
-  # Oracle
-  #  datasource:
-  #    driverClassName: oracle.jdbc.OracleDriver
-  #    url: jdbc:oracle:thin:@aml2devops:1521:tstdf
-  #    username: TEMPLATE
-  #    password: TEMPLATE
-  #    hikari:
-  #      connection-test-query:
-  #  jpa:
-  #    database-platform: org.hibernate.dialect.Oracle10gDialect
-  #    show-sql: true
-  #    generate-ddl: false
-  #    hibernate:
-  #      ddl-auto: none
-  #      naming:
-  #        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-  #    properties:
-  #      hibernate:
-  #        globally_quoted_identifiers: false # Для PostgreSQL установить в true, для MSSQL, Oracle в false
-  #        jdbc:
-  #          time_zone: UTC
-  #          lob:
-  #            non_contextual_creation: true
-
-  # h2
-  #  datasource:
-  #    driverClassName: ${DB_DRIVER:org.h2.Driver}
-  #    url: ${DB_URL:jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1}
-  #    username: ${DB_LOGIN:sa}
-  #    password: ${DB_PASSWORD:}
-  #  jpa:
-  #    database-platform: ${JPA_DIALECT:org.hibernate.dialect.H2Dialect}
-  #    generate-ddl: ${GENERATE_DDL:true}
-  #    hibernate:
-  #      naming:
-  #        physical-strategy: ${JPA_STRATEGY:ru.diasoft.micro.lib.config.H2PhysicalNamingStrategy}
-  # Generate Events Publisher or Subsriber
 
   kafka:
     bootstrap-servers: 192.168.1.9:9092
@@ -105,3 +69,12 @@ dstrace:
 logging:
   level:
     ru.diasoft: ${LOGGING_LEVEL:DEBUG}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    prefer-ip-address: true
+    fetch-registry: true
+    register-with-uereka: true

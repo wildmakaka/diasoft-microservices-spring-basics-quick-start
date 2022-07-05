@@ -21,9 +21,97 @@
 8. Продемонстрировать вызов методов GET v1/sms-verification и POST/sms-verification микросервиса "demo" через API Gateway.
 
 
+
 <br/>
 
-=============================
+## Отчет по заданию
+
+
+Чтобы запустить пример, нужно стартовать все сервисы. 
+Сервис demo у меня в ubuntu не стартует из-за проблем с lombok и IdeaC. Много покопал. Коллеги разработчики под windows не помогли победить. 
+
+Запуск приложения я выполнял следующими командами.
+
+
+<br/>
+
+```
+$ cd demo/
+$ mvn clean install
+$ cd service/target
+$ java -jar ./demo-1.00.01-SNAPSHOT.jar
+```
+
+Eureka и GateWay запускаются в IdeaC.
+
+<br/>
+
+### Eureka
+
+
+http://localhost:8761/
+
+
+<br/>
+
+![Application](/img/app013-pic01.png?raw=true)
+
+
+<br/>
+
+### GateWay
+
+<br/>
+
+```
+// POST
+$ curl -X POST "http://localhost:8080/v1/sms-verification" -H "accept: */*" -H "Content-Type: application/json" -d "{\"PhoneNumber\":\"5555550\"}"
+```
+
+<br/>
+
+Сначала делаю правильный запрос, потом неправильный.
+
+```
+// GET
+$ curl -X GET "http://localhost:7081/v1/sms-verification" -H "accept: */*" -H "Content-Type: application/json" -d "{\"Code\":\"0204\",\"ProcessGUID\":\"475ac9c8-8c70-4cb8-af87-cf62581c755e\"}"
+```
+
+
+<br/>
+
+![Application](/img/app013-pic02.gif?raw=true)
+
+
+<br/>
+
+### Запуск Тестов
+
+
+<br/>
+
+```
+$ mvn test -Dtest="ru.diasoft.micro.repository.SmsVerificationRepositoryTest" -am -DfailIfNoTests=false
+```
+
+<br/>
+
+![Application](/img/app013-pic03.png?raw=true)
+
+<br/>
+
+```
+$ mvn test -Dtest="ru.diasoft.micro.service.SmsVerificationServiceTest" -am -DfailIfNoTests=false
+```
+
+<br/>
+
+![Application](/img/app013-pic04.png?raw=true)
+
+
+<br/>
+
+## Шаги по решению задания (для себя)
 
 <br/>
 
@@ -183,27 +271,6 @@ $ mvn clean install -Dmaven.test.skip=true
 // $ mvn clean install
 ```
 
-<!--
-
-<br/>
-
-Или
-
-
-<br/>
-
-**Run -> Run Configurations**
-
-<br/>
-
-![Application](/img/app013-pic01.png?raw=true)
-
-
-<br/>
-
-![Application](/img/app013-pic01.png?raw=true)
-
--->
 
 <br/>
 
@@ -228,9 +295,6 @@ $ ./dm.sh -d -c -i --url=jdbc:postgresql://postgres:5432 --database=postgresdb -
 ```
 
 
-<!-- <br/>
-
-![Application](/img/app013-pic03.png?raw=true) -->
 
 
 <br/>
@@ -239,10 +303,6 @@ $ ./dm.sh -d -c -i --url=jdbc:postgresql://postgres:5432 --database=postgresdb -
 $ ./dm.sh -u --url=jdbc:postgresql://postgres:5432 --database=postgresdb --schema=public --username=user1 --password=pA55w0rd123 --admin=admin1 --adminPassword=pA55w0rd123 --driver=org.postgresql.Driver
 ```
 
-
-<!-- <br/>
-
-![Application](/img/app013-pic04.png?raw=true) -->
 
 <br/>
 
@@ -298,30 +358,6 @@ postgresdb=> SELECT filename, exectype FROM databasechangelog;
 ```
 
 
-<!-- 
-
-```
-$ cd service/
-$ mvn spring-boot:run -P dev
-``` -->
-
-<br/>
-
-### Запуск Тестов
-
-
-<br/>
-
-```
-$ mvn test -Dtest="ru.diasoft.micro.repository.SmsVerificationRepositoryTest#smsVerificationCreateTest" -am -DfailIfNoTests=false
-```
-
-<br/>
-
-```
-$ mvn test -Dtest="ru.diasoft.micro.service.SmsVerificationServiceTest" -am -DfailIfNoTests=false
-```
-
 <br/>
 
 ### Запуск Приложения
@@ -336,7 +372,6 @@ $ mvn package
 $ cd service/target
 $ java -jar ./demo-1.00.01-SNAPSHOT.jar
 // $ java -jar ./demo-1.00.01-SNAPSHOT.jar -Dspring.profiles.active=dev
-
 ```
 
 <br/>
@@ -378,18 +413,11 @@ dq-mdp-versions-object-versions-in
 dq-mdp-audit-json-events-in
 ```
 
-<br/>
-
-???
-
-sms-verification-created
-
-
 
 <br/>
 
 ```
-// Receive a Message
+// Receive Messages
 $ kafka-console-consumer.sh \
     --bootstrap-server localhost:9092 \
     --topic sms-verification-created \
@@ -402,21 +430,11 @@ $ kafka-console-consumer.sh \
 <br/>
 
 ```
-// Receive a Message
-$ kafka-console-consumer.sh \
-    --bootstrap-server localhost:9092 \
-    --topic sms-verification-delivered \
-    --from-beginning
-
-^C
-```
-
-<br/>
-
-```
 {"guid":"57ab1698-d089-4f71-b15a-0a132e55af97","phoneNumber":"1000","code":"2256"}
 {"guid":"3a979430-b81e-4488-bd10-87b9cdd65e12","phoneNumber":"1000","code":"5404"}
 {"guid":"31ec18db-c359-44a6-b748-e9a2f313f5e3","phoneNumber":"string","code":"3053"}
 {"guid":"7010867a-38f5-4869-8dd3-3fae0d504212","phoneNumber":"5555555","code":"2761"}
 ```
+
+
 

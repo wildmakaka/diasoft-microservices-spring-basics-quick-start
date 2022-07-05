@@ -20,4 +20,5 @@ public class SmsDeliveredListenerService implements SmsVerificationDeliveredSubs
     public void smsVerificationDelivered(SmsDeliveredMessage msg) {
         repository.updateStatusByProcessGuid(STATUS_OK, msg.getGuid());
     }
-}
+
+} // The End of Class;
