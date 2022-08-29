@@ -18,6 +18,20 @@ $ cd apps/app07
 $ ./mvnw spring-boot:run
 ```
 
+
+
+<br/>
+
+
+```
+$ mvn test
+```
+
+<br/>
+
+![Application](/img/app07-pic02.gif?raw=true)
+
+
 <br/>
 
 ```

@@ -37,4 +37,4 @@ $ kafka-console-producer.sh \
 
 <br/>
 
-![Application](/img/app07-pic10.gif?raw=true)
+![Application](/img/app10-pic01.gif?raw=true)
