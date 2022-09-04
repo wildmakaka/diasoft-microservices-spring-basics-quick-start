@@ -41,9 +41,7 @@ public class UserController {
 	public List<User> addUsers(@RequestBody List<User> users){
 		return userService.createUsers(users);
 	}
-	
 
-	
 	@PutMapping("/updateUser")
 	public User updateUser(@RequestBody User user) {
 		return userService.updateUser(user);

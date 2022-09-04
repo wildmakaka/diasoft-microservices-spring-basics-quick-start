@@ -7,7 +7,7 @@
 
 <br/>
 
-## Вариант 1 (Интеграционные Rest тесты)
+## Вариант 1
 
 <br/>
 
@@ -56,7 +56,7 @@ http://localhost:8080/h2-console/
 
 <br/>
 
-## Вариант 2 (Unit тесты)
+## Вариант 2 (MockMvc)
 
 
 <br/>
@@ -69,7 +69,7 @@ $ cd apps/app07/v2
 
 
 ```
-$ ./mvnw spring-boot:run
+$ mvn test
 ```
 
 
@@ -85,3 +85,9 @@ https://www.youtube.com/watch?v=lBLXthAO5OM
 https://www.youtube.com/watch?v=prLt2LHbA8o
 
 https://github.com/sendelufa/lesson-liquibase-start/tree/result
+
+
+https://habr.com/ru/post/527330/
+
+
+https://github.com/mscharhag/blog-examples/blob/master/mockmvc-testing/src/test/java/com/mscharhag/mockmvc/ProductControllerTest.java
