@@ -8,7 +8,7 @@
 <br/>
 
 ```
-$ cd apps/app07
+$ cd apps/app07v1
 ```
 
 <br/>
@@ -34,16 +34,22 @@ $ mvn test
 
 <br/>
 
-```
-// Подключиться к базе  
-http://localhost:8080/h2-console/
-```
+
+### Запуск приложения из IDE
 
 
 <br/>
 
 ![Application](/img/app07-pic01.gif?raw=true)
 
+
+
+<br/>
+
+```
+// Подключиться к базе можно  
+http://localhost:8080/h2-console/
+```
 
 <br/>
 
