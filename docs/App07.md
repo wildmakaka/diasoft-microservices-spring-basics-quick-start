@@ -7,8 +7,12 @@
 
 <br/>
 
+## Вариант 1 (Интеграционные Rest тесты)
+
+<br/>
+
 ```
-$ cd apps/app07v1
+$ cd apps/app07/v1
 ```
 
 <br/>
@@ -17,8 +21,6 @@ $ cd apps/app07v1
 ```
 $ ./mvnw spring-boot:run
 ```
-
-
 
 <br/>
 
@@ -50,6 +52,26 @@ $ mvn test
 // Подключиться к базе можно  
 http://localhost:8080/h2-console/
 ```
+
+
+<br/>
+
+## Вариант 2 (Unit тесты)
+
+
+<br/>
+
+```
+$ cd apps/app07/v2
+```
+
+<br/>
+
+
+```
+$ ./mvnw spring-boot:run
+```
+
 
 <br/>
 
