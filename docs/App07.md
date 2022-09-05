@@ -31,7 +31,7 @@ $ mvn test
 
 <br/>
 
-![Application](/img/app07-pic02.gif?raw=true)
+![Application](/img/app07-pic01.gif?raw=true)
 
 
 <br/>
@@ -42,21 +42,8 @@ $ mvn test
 
 <br/>
 
-Из linux консоли не запускается! Из IDE норм. 
+![Application](/img/app07-pic02.gif?raw=true)
 
-
-<br/>
-
-**UserControllerTests**
-
-![Application](/img/app07-pic03.gif?raw=true)
-
-
-<br/>
-
-**UserServiceTests**
-
-![Application](/img/app07-pic04.gif?raw=true)
 
 
 <br/>
@@ -78,7 +65,23 @@ http://localhost:8080/h2-console/
 $ cd apps/app07/v2
 ```
 
+<br/>
 
+Из linux консоли не запускается! Из IDE норм. 
+
+
+<br/>
+
+**UserControllerTests**
+
+![Application](/img/app07-pic03.gif?raw=true)
+
+
+<br/>
+
+**UserServiceTests**
+
+![Application](/img/app07-pic04.gif?raw=true)
 
 
 <br/>
