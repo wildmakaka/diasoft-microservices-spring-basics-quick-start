@@ -74,14 +74,14 @@ $ cd apps/app07/v2
 
 **UserControllerTests**
 
-![Application](/img/app07-pic03.gif?raw=true)
+![Application](/img/app07-pic03.png?raw=true)
 
 
 <br/>
 
 **UserServiceTests**
 
-![Application](/img/app07-pic04.gif?raw=true)
+![Application](/img/app07-pic04.png?raw=true)
 
 
 <br/>
