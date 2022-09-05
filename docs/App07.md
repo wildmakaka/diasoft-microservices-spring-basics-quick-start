@@ -42,8 +42,21 @@ $ mvn test
 
 <br/>
 
-![Application](/img/app07-pic01.gif?raw=true)
+Из linux консоли не запускается! Из IDE норм. 
 
+
+<br/>
+
+**UserControllerTests**
+
+![Application](/img/app07-pic03.gif?raw=true)
+
+
+<br/>
+
+**UserServiceTests**
+
+![Application](/img/app07-pic04.gif?raw=true)
 
 
 <br/>
@@ -65,12 +78,7 @@ http://localhost:8080/h2-console/
 $ cd apps/app07/v2
 ```
 
-<br/>
 
-
-```
-$ mvn test
-```
 
 
 <br/>
@@ -91,3 +99,6 @@ https://habr.com/ru/post/527330/
 
 
 https://github.com/mscharhag/blog-examples/blob/master/mockmvc-testing/src/test/java/com/mscharhag/mockmvc/ProductControllerTest.java
+
+
+https://github.com/ramram43210/Java_2021/blob/main/Java_2021/SpringBoot_Junit_Mockito/SpringBootDemo/src/test/java/com/ram/service/impl/UserServiceImplTest.java

@@ -1,15 +1,10 @@
 package org.javadev.restservice.service;
-
-// import org.javadev.restservice.service.UserService;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.ArgumentMatchers.anyString;
-
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 
@@ -20,6 +15,8 @@ import org.mockito.Mock;
 
 import org.javadev.restservice.entity.User;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import java.util.Optional;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceTests {
@@ -32,11 +29,8 @@ public class UserServiceTests {
 
     User user;
 
-
     @Before
     public void setUp() throws Exception {
-
-        System.out.println("BeforeEach");
 
         MockitoAnnotations.initMocks(this);
 
@@ -60,17 +54,42 @@ public class UserServiceTests {
     }
 
     @Test
-    public void createUserTest() {
+    public void getUserByIdTest() {
 
-        when(userRepository.save(any(User.class))).thenReturn(user);
+        when(userRepository.findById(anyInt())).thenReturn(Optional.ofNullable(user));
 
-        User createdUser = userService.createUser(user);
+        User userFromDB = userService.getUserById(user.getId());
 
-        assertNotNull(createdUser);
-        assertEquals(user.getId(), createdUser.getId());
-        assertEquals(user.getName(), createdUser.getName());
-        assertEquals(user.getAddress(), createdUser.getAddress());
+        assertNotNull(userFromDB);
+        assertEquals(user.getId(), userFromDB.getId());
+        assertEquals(user.getName(), userFromDB.getName());
+        assertEquals(user.getAddress(), userFromDB.getAddress());
     }
+
+    @Test
+    public void updateUserTest() {
+
+        when(userRepository.findById(anyInt())).thenReturn(Optional.ofNullable(user));
+
+        User newUser = new User();
+        newUser.setId(8);
+        newUser.setName("Webmakaka8");
+        newUser.setAddress("Address8");
+
+        User updatedUser = userService.updateUser(newUser);
+
+        assertNotNull(updatedUser);
+        assertEquals(user.getId(), updatedUser.getId());
+        assertEquals(newUser.getName(), updatedUser.getName());
+        assertEquals(newUser.getAddress(), updatedUser.getAddress());
+    }
+
+    @Test
+    public void deleteUserByIdTest() {
+        String result = userService.deleteUserById(user.getId());
+        assertEquals(result, "User deleted!");
+    }
+
 
 } // The End of Class;
 
